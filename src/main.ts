@@ -750,27 +750,13 @@ export class AutomatedWaf extends cdk.Construct {
       });
     }
 
-    const helpAssetCode = lambda.Code.fromAsset(
-      path.join(__dirname, '../source/helper'),
-      {
-        bundling: {
-          image: lambda.Runtime.PYTHON_3_8.bundlingImage,
-          command: [
-            'bash',
-            '-c',
-            'pip install -r requirements.txt -t /asset-output && cp -a helper.py /asset-output',
-          ],
-        },
-      }
-    );
-
     //Lambda
-    new lambda.Function(this, 'Helper', {
+    new lambda.DockerImageFunction(this, 'Helper', {
       description:
         "This lambda function verifies the main project's dependencies, requirements and implement auxiliary functions.",
-      runtime: lambda.Runtime.PYTHON_3_8,
-      code: helpAssetCode,
-      handler: 'helper.lambda_handler',
+      code: lambda.DockerImageCode.fromImageAsset(
+        path.join(__dirname, '../source/helper')
+      ),
       memorySize: 512,
       timeout: cdk.Duration.seconds(300),
       environment: {
@@ -779,26 +765,15 @@ export class AutomatedWaf extends cdk.Construct {
       },
     });
 
-    const logParserAssetCode = lambda.Code.fromAsset(
-      path.join(__dirname, '../source/log_parser'),
-      {
-        bundling: {
-          image: lambda.Runtime.PYTHON_3_8.bundlingImage,
-          command: [
-            'bash',
-            '-c',
-            'pip install -r requirements.txt -t /asset-output && cp -a log-parser.py partition_s3_logs.py add_athena_partitions.py build_athena_queries.py /asset-output && ls -al /asset-output',
-          ],
-        },
-      }
-    );
-
-    const logParserLambda = new lambda.Function(this, 'LogParser', {
+    const logParserLambda = new lambda.DockerImageFunction(this, 'LogParser', {
       description:
         'This function parses access logs to identify suspicious behavior, such as an abnormal amount of errors. It then blocks those IP addresses for a customer-defined period of time.',
-      runtime: lambda.Runtime.PYTHON_3_8,
-      code: logParserAssetCode,
-      handler: 'log-parser.lambda_handler',
+      code: lambda.DockerImageCode.fromImageAsset(
+        path.join(__dirname, '../source/log_parser'),
+        {
+          cmd: ['log-parser.lambda_handler'],
+        }
+      ),
       memorySize: 512,
       timeout: cdk.Duration.seconds(300),
       environment: {
@@ -831,15 +806,18 @@ export class AutomatedWaf extends cdk.Construct {
       },
     });
 
-    const moveLogToPartitionLambda = new lambda.Function(
+    const moveLogToPartitionLambda = new lambda.DockerImageFunction(
       this,
       'MoveS3LogsForPartition',
       {
         description:
           'This function is triggered by S3 event to move log files(upon their arrival in s3) from their original location to a partitioned folder structure created per timestamps in file names, hence allowing the usage of partitioning within AWS Athena.',
-        runtime: lambda.Runtime.PYTHON_3_8,
-        code: logParserAssetCode,
-        handler: 'partition_s3_logs.lambda_handler',
+        code: lambda.DockerImageCode.fromImageAsset(
+          path.join(__dirname, '../source/log_parser'),
+          {
+            cmd: ['partition_s3_logs.lambda_handler'],
+          }
+        ),
         memorySize: 512,
         timeout: cdk.Duration.seconds(300),
         environment: {
@@ -853,26 +831,12 @@ export class AutomatedWaf extends cdk.Construct {
       }
     );
 
-    const timerAssetCode = lambda.Code.fromAsset(
-      path.join(__dirname, '../source/timer'),
-      {
-        bundling: {
-          image: lambda.Runtime.PYTHON_3_8.bundlingImage,
-          command: [
-            'bash',
-            '-c',
-            'pip install -r requirements.txt -t /asset-output && cp -a timer.py /asset-output',
-          ],
-        },
-      }
-    );
-
-    new lambda.Function(this, 'CustomTimer', {
+    new lambda.DockerImageFunction(this, 'CustomTimer', {
       description:
         'This lambda function counts X seconds and can be used to slow down component creation in CloudFormation',
-      runtime: lambda.Runtime.PYTHON_3_8,
-      code: timerAssetCode,
-      handler: 'timer.lambda_handler',
+      code: lambda.DockerImageCode.fromImageAsset(
+        path.join(__dirname, '../source/timer')
+      ),
       memorySize: 128,
       timeout: cdk.Duration.seconds(300),
       environment: {
@@ -942,29 +906,15 @@ export class AutomatedWaf extends cdk.Construct {
       })
     );
 
-    const reputationListsParserAssetCode = lambda.Code.fromAsset(
-      path.join(__dirname, '../source/reputation_lists_parser'),
-      {
-        bundling: {
-          image: lambda.Runtime.PYTHON_3_8.bundlingImage,
-          command: [
-            'bash',
-            '-c',
-            'pip install -r requirements.txt -t /asset-output && cp -a reputation-lists.py /asset-output',
-          ],
-        },
-      }
-    );
-
-    const reputationListsParserLambda = new lambda.Function(
+    const reputationListsParserLambda = new lambda.DockerImageFunction(
       this,
       'ReputationListsParser',
       {
         description:
           'This lambda function checks third-party IP reputation lists hourly for new IP ranges to block. These lists include the Spamhaus Dont Route Or Peer (DROP) and Extended Drop (EDROP) lists, the Proofpoint Emerging Threats IP list, and the Tor exit node list.',
-        runtime: lambda.Runtime.PYTHON_3_8,
-        code: reputationListsParserAssetCode,
-        handler: 'reputation-lists.lambda_handler',
+        code: lambda.DockerImageCode.fromImageAsset(
+          path.join(__dirname, '../source/reputation_lists_parser')
+        ),
         memorySize: 512,
         timeout: cdk.Duration.seconds(300),
         role: reputationListRole,
@@ -1075,26 +1025,12 @@ export class AutomatedWaf extends cdk.Construct {
         })
       );
 
-      const shieldAdvancedAssetCode = lambda.Code.fromAsset(
-        path.join(__dirname, '../source/shield_protection'),
-        {
-          bundling: {
-            image: lambda.Runtime.PYTHON_3_8.bundlingImage,
-            command: [
-              'bash',
-              '-c',
-              'pip install -r requirements.txt -t /asset-output && cp -a shield-protection.py /asset-output',
-            ],
-          },
-        }
-      );
-
-      new lambda.Function(this, 'ShieldAdvancedLambda', {
+      new lambda.DockerImageFunction(this, 'ShieldAdvancedLambda', {
         description:
           'This lambda function create an AWS Shield resource protection and protection group for the cloudfront resource.',
-        runtime: lambda.Runtime.PYTHON_3_8,
-        code: shieldAdvancedAssetCode,
-        handler: 'shield-protection.lambda_handler',
+        code: lambda.DockerImageCode.fromImageAsset(
+          path.join(__dirname, '../source/shield_protection')
+        ),
         memorySize: 512,
         timeout: cdk.Duration.seconds(300),
         role: shieldRole,
@@ -1164,46 +1100,36 @@ export class AutomatedWaf extends cdk.Construct {
         })
       );
 
-      const badBotParserAssetCode = lambda.Code.fromAsset(
-        path.join(__dirname, '../source/access_handler'),
+      const badBotParserLambda = new lambda.DockerImageFunction(
+        this,
+        'BadBotParser',
         {
-          bundling: {
-            image: lambda.Runtime.PYTHON_3_8.bundlingImage,
-            command: [
-              'bash',
-              '-c',
-              'pip install -r requirements.txt -t /asset-output && cp -a access-handler.py /asset-output',
-            ],
+          description:
+            'This lambda function will intercepts and inspects trap endpoint requests to extract its IP address, and then add it to an AWS WAF block list.',
+          role: badBotRole,
+          code: lambda.DockerImageCode.fromImageAsset(
+            path.join(__dirname, '../source/access_handler')
+          ),
+          memorySize: 512,
+          timeout: cdk.Duration.seconds(300),
+          environment: {
+            SCOPE: props.waf2Scope,
+            IP_SET_ID_BAD_BOTV4: badBotIpSetV4.attrArn,
+            IP_SET_ID_BAD_BOTV6: badBotIpSetV6.attrArn,
+            IP_SET_NAME_BAD_BOTV4: badBotIpSetV4.name!,
+            IP_SET_NAME_BAD_BOTV6: badBotIpSetV6.name!,
+            SEND_ANONYMOUS_USAGE_DATA: 'No',
+            UUID: 'CreateUniqueID.UUID',
+            REGION: cdk.Fn.ref('AWS::Region'),
+            LOG_TYPE: 'cloudfront',
+            METRIC_NAME_PREFIX: cdk.Fn.ref('AWS::StackName'),
+            LOG_LEVEL: logLevel,
+            SOLUTION_ID: 'SO8128',
+            METRICS_URL: 'https://metrics.awssolutionsbuilder.com/generic',
+            STACK_NAME: cdk.Fn.ref('AWS::StackName'),
           },
         }
       );
-
-      const badBotParserLambda = new lambda.Function(this, 'BadBotParser', {
-        description:
-          'This lambda function will intercepts and inspects trap endpoint requests to extract its IP address, and then add it to an AWS WAF block list.',
-        runtime: lambda.Runtime.PYTHON_3_8,
-        role: badBotRole,
-        code: badBotParserAssetCode,
-        handler: 'access-handler.lambda_handler',
-        memorySize: 512,
-        timeout: cdk.Duration.seconds(300),
-        environment: {
-          SCOPE: props.waf2Scope,
-          IP_SET_ID_BAD_BOTV4: badBotIpSetV4.attrArn,
-          IP_SET_ID_BAD_BOTV6: badBotIpSetV6.attrArn,
-          IP_SET_NAME_BAD_BOTV4: badBotIpSetV4.name!,
-          IP_SET_NAME_BAD_BOTV6: badBotIpSetV6.name!,
-          SEND_ANONYMOUS_USAGE_DATA: 'No',
-          UUID: 'CreateUniqueID.UUID',
-          REGION: cdk.Fn.ref('AWS::Region'),
-          LOG_TYPE: 'cloudfront',
-          METRIC_NAME_PREFIX: cdk.Fn.ref('AWS::StackName'),
-          LOG_LEVEL: logLevel,
-          SOLUTION_ID: 'SO8128',
-          METRICS_URL: 'https://metrics.awssolutionsbuilder.com/generic',
-          STACK_NAME: cdk.Fn.ref('AWS::StackName'),
-        },
-      });
 
       //API Gateway for badbot detection
       const badBotApi = new apigateway.RestApi(this, 'ApiGatewayBadBot', {
@@ -1225,35 +1151,25 @@ export class AutomatedWaf extends cdk.Construct {
       });
     }
 
-    const customResourceAssetCode = lambda.Code.fromAsset(
-      path.join(__dirname, '../source/custom_resource'),
+    const customResourceLambda = new lambda.DockerImageFunction(
+      this,
+      'CustomResource',
       {
-        bundling: {
-          image: lambda.Runtime.PYTHON_3_8.bundlingImage,
-          command: [
-            'bash',
-            '-c',
-            'pip install -r requirements.txt -t /asset-output && cp -a custom-resource.py /asset-output',
-          ],
+        description:
+          'This lambda function configures the Web ACL rules based on the features enabled in the CloudFormation template.',
+        code: lambda.DockerImageCode.fromImageAsset(
+          path.join(__dirname, '../source/custom_resource')
+        ),
+        memorySize: 512,
+        timeout: cdk.Duration.seconds(300),
+        environment: {
+          LOG_LEVEL: logLevel,
+          SCOPE: props.waf2Scope,
+          SOLUTION_ID: 'SO8128',
+          METRICS_URL: 'https://metrics.awssolutionsbuilder.com/generic',
         },
       }
     );
-
-    const customResourceLambda = new lambda.Function(this, 'CustomResource', {
-      description:
-        'This lambda function configures the Web ACL rules based on the features enabled in the CloudFormation template.',
-      runtime: lambda.Runtime.PYTHON_3_8,
-      code: customResourceAssetCode,
-      handler: 'custom-resource.lambda_handler',
-      memorySize: 512,
-      timeout: cdk.Duration.seconds(300),
-      environment: {
-        LOG_LEVEL: logLevel,
-        SCOPE: props.waf2Scope,
-        SOLUTION_ID: 'SO8128',
-        METRICS_URL: 'https://metrics.awssolutionsbuilder.com/generic',
-      },
-    });
 
     //Kinesis Data Firehose
     const firehoseRole = new iam.Role(this, 'FirehoseRole', {
@@ -1901,15 +1817,18 @@ export class AutomatedWaf extends cdk.Construct {
       ],
     });
 
-    const addAthenaPartitionsLambda = new lambda.Function(
+    const addAthenaPartitionsLambda = new lambda.DockerImageFunction(
       this,
       'AddAthenaPartitionsFunction',
       {
         description:
           'This function adds a new hourly partition to athena table. It runs every hour, triggered by a CloudWatch event.',
-        runtime: lambda.Runtime.PYTHON_3_8,
-        code: logParserAssetCode,
-        handler: 'add_athena_partitions.lambda_handler',
+        code: lambda.DockerImageCode.fromImageAsset(
+          path.join(__dirname, '../source/log_parser'),
+          {
+            cmd: ['add_athena_partitions.lambda_handler'],
+          }
+        ),
         memorySize: 512,
         timeout: cdk.Duration.minutes(5),
         maxEventAge: cdk.Duration.hours(6),
