@@ -160,7 +160,7 @@ export class AutomatedWaf extends cdk.Construct {
           ],
           principals: [
             new iam.AccountPrincipal(
-              Elastic_Load_Balancing_account_ID[cdk.Aws.REGION]
+              Elastic_Load_Balancing_account_ID[stack.region]
             ),
           ],
         })
