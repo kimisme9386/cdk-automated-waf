@@ -25,7 +25,7 @@ jobs:
       - name: Install dependencies
         run: yarn install --check-files --frozen-lockfile
       - name: set CDK_DEFAULT_REGION environment
-        run: echo "CDK_DEFAULT_REGION=ap-northeast" >> $GITHUB_ENV
+        run: echo "CDK_DEFAULT_REGION=ap-northeast-1" >> $GITHUB_ENV
       - name: release
         run: npx projen release
       - name: Check for new commits

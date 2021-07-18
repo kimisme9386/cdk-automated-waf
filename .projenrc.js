@@ -51,7 +51,7 @@ const project = new AwsCdkConstructLibrary({
   releaseWorkflowSetupSteps: [
     {
       name: 'set CDK_DEFAULT_REGION environment',
-      run: 'echo "CDK_DEFAULT_REGION=ap-northeast" >> $GITHUB_ENV',
+      run: 'echo "CDK_DEFAULT_REGION=ap-northeast-1" >> $GITHUB_ENV',
     },
   ],
 });
