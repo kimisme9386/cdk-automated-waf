@@ -1,3 +1,4 @@
+import * as path from 'path';
 import * as apigateway from '@aws-cdk/aws-apigateway';
 import * as athena from '@aws-cdk/aws-athena';
 import * as cloudwatch from '@aws-cdk/aws-cloudwatch';
@@ -13,7 +14,6 @@ import * as wafv2 from '@aws-cdk/aws-wafv2';
 import * as cdk from '@aws-cdk/core';
 import { CustomResource } from '@aws-cdk/core';
 import * as cr from '@aws-cdk/custom-resources';
-import * as path from 'path';
 
 export enum Waf2ScopeOption {
   CLOUDFRONT = 'CLOUDFRONT',
@@ -1384,7 +1384,7 @@ export class AutomatedWaf extends cdk.Construct {
           description: stack.stackName + ' - APP Access Logs',
           parameters: {
             'skip.header.line.count': '2',
-            EXTERNAL: 'TRUE',
+            'EXTERNAL': 'TRUE',
           },
           storageDescriptor: {
             columns: [
