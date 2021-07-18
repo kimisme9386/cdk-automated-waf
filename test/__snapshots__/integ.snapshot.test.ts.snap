@@ -31,42 +31,6 @@ Object {
     },
   },
   "Parameters": Object {
-    "AssetParameters1744b5c1266d7a1d73394ed5639a290664a9e660ab7978eb8d14373bee2ef3a3ArtifactHash7E9067BC": Object {
-      "Description": "Artifact hash for asset \\"1744b5c1266d7a1d73394ed5639a290664a9e660ab7978eb8d14373bee2ef3a3\\"",
-      "Type": "String",
-    },
-    "AssetParameters1744b5c1266d7a1d73394ed5639a290664a9e660ab7978eb8d14373bee2ef3a3S3BucketBFE2BA34": Object {
-      "Description": "S3 bucket for asset \\"1744b5c1266d7a1d73394ed5639a290664a9e660ab7978eb8d14373bee2ef3a3\\"",
-      "Type": "String",
-    },
-    "AssetParameters1744b5c1266d7a1d73394ed5639a290664a9e660ab7978eb8d14373bee2ef3a3S3VersionKey66F744C6": Object {
-      "Description": "S3 key for asset version \\"1744b5c1266d7a1d73394ed5639a290664a9e660ab7978eb8d14373bee2ef3a3\\"",
-      "Type": "String",
-    },
-    "AssetParameters6be598966b83d5177a2f23f705ab042afbf222437d20866399d576bbeaf30e64ArtifactHashF58674BF": Object {
-      "Description": "Artifact hash for asset \\"6be598966b83d5177a2f23f705ab042afbf222437d20866399d576bbeaf30e64\\"",
-      "Type": "String",
-    },
-    "AssetParameters6be598966b83d5177a2f23f705ab042afbf222437d20866399d576bbeaf30e64S3Bucket49311CF2": Object {
-      "Description": "S3 bucket for asset \\"6be598966b83d5177a2f23f705ab042afbf222437d20866399d576bbeaf30e64\\"",
-      "Type": "String",
-    },
-    "AssetParameters6be598966b83d5177a2f23f705ab042afbf222437d20866399d576bbeaf30e64S3VersionKeyA5C89C61": Object {
-      "Description": "S3 key for asset version \\"6be598966b83d5177a2f23f705ab042afbf222437d20866399d576bbeaf30e64\\"",
-      "Type": "String",
-    },
-    "AssetParameters9adb6ec16cd08d5d9c755ccb1823098c09904313b6eadd75e3fd8cc80424ba66ArtifactHash653A7A7A": Object {
-      "Description": "Artifact hash for asset \\"9adb6ec16cd08d5d9c755ccb1823098c09904313b6eadd75e3fd8cc80424ba66\\"",
-      "Type": "String",
-    },
-    "AssetParameters9adb6ec16cd08d5d9c755ccb1823098c09904313b6eadd75e3fd8cc80424ba66S3Bucket6B1E61C8": Object {
-      "Description": "S3 bucket for asset \\"9adb6ec16cd08d5d9c755ccb1823098c09904313b6eadd75e3fd8cc80424ba66\\"",
-      "Type": "String",
-    },
-    "AssetParameters9adb6ec16cd08d5d9c755ccb1823098c09904313b6eadd75e3fd8cc80424ba66S3VersionKeyA81505AF": Object {
-      "Description": "S3 key for asset version \\"9adb6ec16cd08d5d9c755ccb1823098c09904313b6eadd75e3fd8cc80424ba66\\"",
-      "Type": "String",
-    },
     "AssetParametersc691172cdeefa2c91b5a2907f9d81118e47597634943344795f1a844192dd49cArtifactHash627DAAA7": Object {
       "Description": "Artifact hash for asset \\"c691172cdeefa2c91b5a2907f9d81118e47597634943344795f1a844192dd49c\\"",
       "Type": "String",
@@ -77,30 +41,6 @@ Object {
     },
     "AssetParametersc691172cdeefa2c91b5a2907f9d81118e47597634943344795f1a844192dd49cS3VersionKeyDD9AE9E7": Object {
       "Description": "S3 key for asset version \\"c691172cdeefa2c91b5a2907f9d81118e47597634943344795f1a844192dd49c\\"",
-      "Type": "String",
-    },
-    "AssetParametersf698daee6118a60d4addf30f92cb0cabaa291770398565b23116d70cfc482b26ArtifactHashB9C53B25": Object {
-      "Description": "Artifact hash for asset \\"f698daee6118a60d4addf30f92cb0cabaa291770398565b23116d70cfc482b26\\"",
-      "Type": "String",
-    },
-    "AssetParametersf698daee6118a60d4addf30f92cb0cabaa291770398565b23116d70cfc482b26S3Bucket7468F4E5": Object {
-      "Description": "S3 bucket for asset \\"f698daee6118a60d4addf30f92cb0cabaa291770398565b23116d70cfc482b26\\"",
-      "Type": "String",
-    },
-    "AssetParametersf698daee6118a60d4addf30f92cb0cabaa291770398565b23116d70cfc482b26S3VersionKey81D245A0": Object {
-      "Description": "S3 key for asset version \\"f698daee6118a60d4addf30f92cb0cabaa291770398565b23116d70cfc482b26\\"",
-      "Type": "String",
-    },
-    "AssetParametersf9c4d95958cb91dfc0d3eb06ae187348d95fc5690fdc07c5c42a48a192e9afd7ArtifactHashF6A76F2A": Object {
-      "Description": "Artifact hash for asset \\"f9c4d95958cb91dfc0d3eb06ae187348d95fc5690fdc07c5c42a48a192e9afd7\\"",
-      "Type": "String",
-    },
-    "AssetParametersf9c4d95958cb91dfc0d3eb06ae187348d95fc5690fdc07c5c42a48a192e9afd7S3BucketF48CB0AD": Object {
-      "Description": "S3 bucket for asset \\"f9c4d95958cb91dfc0d3eb06ae187348d95fc5690fdc07c5c42a48a192e9afd7\\"",
-      "Type": "String",
-    },
-    "AssetParametersf9c4d95958cb91dfc0d3eb06ae187348d95fc5690fdc07c5c42a48a192e9afd7S3VersionKey07966A5B": Object {
-      "Description": "S3 key for asset version \\"f9c4d95958cb91dfc0d3eb06ae187348d95fc5690fdc07c5c42a48a192e9afd7\\"",
       "Type": "String",
     },
   },
@@ -368,39 +308,18 @@ Object {
       ],
       "Properties": Object {
         "Code": Object {
-          "S3Bucket": Object {
-            "Ref": "AssetParameters9adb6ec16cd08d5d9c755ccb1823098c09904313b6eadd75e3fd8cc80424ba66S3Bucket6B1E61C8",
-          },
-          "S3Key": Object {
+          "ImageUri": Object {
             "Fn::Join": Array [
               "",
               Array [
                 Object {
-                  "Fn::Select": Array [
-                    0,
-                    Object {
-                      "Fn::Split": Array [
-                        "||",
-                        Object {
-                          "Ref": "AssetParameters9adb6ec16cd08d5d9c755ccb1823098c09904313b6eadd75e3fd8cc80424ba66S3VersionKeyA81505AF",
-                        },
-                      ],
-                    },
-                  ],
+                  "Ref": "AWS::AccountId",
                 },
+                ".dkr.ecr.ap-northeast-1.",
                 Object {
-                  "Fn::Select": Array [
-                    1,
-                    Object {
-                      "Fn::Split": Array [
-                        "||",
-                        Object {
-                          "Ref": "AssetParameters9adb6ec16cd08d5d9c755ccb1823098c09904313b6eadd75e3fd8cc80424ba66S3VersionKeyA81505AF",
-                        },
-                      ],
-                    },
-                  ],
+                  "Ref": "AWS::URLSuffix",
                 },
+                "/aws-cdk/assets:99469b969b3ec5a29ede163b801a797916aa479e9d104bd533711776831a2542",
               ],
             ],
           },
@@ -411,15 +330,19 @@ Object {
             "LOG_LEVEL": "INFO",
           },
         },
-        "Handler": "add_athena_partitions.lambda_handler",
+        "ImageConfig": Object {
+          "Command": Array [
+            "add_athena_partitions.lambda_handler",
+          ],
+        },
         "MemorySize": 512,
+        "PackageType": "Image",
         "Role": Object {
           "Fn::GetAtt": Array [
             "AutomatedWafAddAthenaPartitionsFunctionServiceRoleCA10CEEE",
             "Arn",
           ],
         },
-        "Runtime": "python3.8",
         "Timeout": 300,
       },
       "Type": "AWS::Lambda::Function",
@@ -731,39 +654,18 @@ Object {
       ],
       "Properties": Object {
         "Code": Object {
-          "S3Bucket": Object {
-            "Ref": "AssetParameters1744b5c1266d7a1d73394ed5639a290664a9e660ab7978eb8d14373bee2ef3a3S3BucketBFE2BA34",
-          },
-          "S3Key": Object {
+          "ImageUri": Object {
             "Fn::Join": Array [
               "",
               Array [
                 Object {
-                  "Fn::Select": Array [
-                    0,
-                    Object {
-                      "Fn::Split": Array [
-                        "||",
-                        Object {
-                          "Ref": "AssetParameters1744b5c1266d7a1d73394ed5639a290664a9e660ab7978eb8d14373bee2ef3a3S3VersionKey66F744C6",
-                        },
-                      ],
-                    },
-                  ],
+                  "Ref": "AWS::AccountId",
                 },
+                ".dkr.ecr.ap-northeast-1.",
                 Object {
-                  "Fn::Select": Array [
-                    1,
-                    Object {
-                      "Fn::Split": Array [
-                        "||",
-                        Object {
-                          "Ref": "AssetParameters1744b5c1266d7a1d73394ed5639a290664a9e660ab7978eb8d14373bee2ef3a3S3VersionKey66F744C6",
-                        },
-                      ],
-                    },
-                  ],
+                  "Ref": "AWS::URLSuffix",
                 },
+                "/aws-cdk/assets:9c963278cb707eac6f017cade5c4444a72a6ef826d6036627b96c0c60c4a25b2",
               ],
             ],
           },
@@ -777,15 +679,14 @@ Object {
             "SOLUTION_ID": "SO8128",
           },
         },
-        "Handler": "custom-resource.lambda_handler",
         "MemorySize": 512,
+        "PackageType": "Image",
         "Role": Object {
           "Fn::GetAtt": Array [
             "AutomatedWafCustomResourceServiceRole154F25D9",
             "Arn",
           ],
         },
-        "Runtime": "python3.8",
         "Timeout": 300,
       },
       "Type": "AWS::Lambda::Function",
@@ -1060,39 +961,18 @@ Object {
       ],
       "Properties": Object {
         "Code": Object {
-          "S3Bucket": Object {
-            "Ref": "AssetParameters6be598966b83d5177a2f23f705ab042afbf222437d20866399d576bbeaf30e64S3Bucket49311CF2",
-          },
-          "S3Key": Object {
+          "ImageUri": Object {
             "Fn::Join": Array [
               "",
               Array [
                 Object {
-                  "Fn::Select": Array [
-                    0,
-                    Object {
-                      "Fn::Split": Array [
-                        "||",
-                        Object {
-                          "Ref": "AssetParameters6be598966b83d5177a2f23f705ab042afbf222437d20866399d576bbeaf30e64S3VersionKeyA5C89C61",
-                        },
-                      ],
-                    },
-                  ],
+                  "Ref": "AWS::AccountId",
                 },
+                ".dkr.ecr.ap-northeast-1.",
                 Object {
-                  "Fn::Select": Array [
-                    1,
-                    Object {
-                      "Fn::Split": Array [
-                        "||",
-                        Object {
-                          "Ref": "AssetParameters6be598966b83d5177a2f23f705ab042afbf222437d20866399d576bbeaf30e64S3VersionKeyA5C89C61",
-                        },
-                      ],
-                    },
-                  ],
+                  "Ref": "AWS::URLSuffix",
                 },
+                "/aws-cdk/assets:8f1e46e2bcae21aa453c5851d217593815ccd97a888207d253171bfddb560c18",
               ],
             ],
           },
@@ -1104,15 +984,14 @@ Object {
             "SECONDS": "2",
           },
         },
-        "Handler": "timer.lambda_handler",
         "MemorySize": 128,
+        "PackageType": "Image",
         "Role": Object {
           "Fn::GetAtt": Array [
             "AutomatedWafCustomTimerServiceRole2E154BE4",
             "Arn",
           ],
         },
-        "Runtime": "python3.8",
         "Timeout": 300,
       },
       "Type": "AWS::Lambda::Function",
@@ -1454,39 +1333,18 @@ Object {
       ],
       "Properties": Object {
         "Code": Object {
-          "S3Bucket": Object {
-            "Ref": "AssetParametersf9c4d95958cb91dfc0d3eb06ae187348d95fc5690fdc07c5c42a48a192e9afd7S3BucketF48CB0AD",
-          },
-          "S3Key": Object {
+          "ImageUri": Object {
             "Fn::Join": Array [
               "",
               Array [
                 Object {
-                  "Fn::Select": Array [
-                    0,
-                    Object {
-                      "Fn::Split": Array [
-                        "||",
-                        Object {
-                          "Ref": "AssetParametersf9c4d95958cb91dfc0d3eb06ae187348d95fc5690fdc07c5c42a48a192e9afd7S3VersionKey07966A5B",
-                        },
-                      ],
-                    },
-                  ],
+                  "Ref": "AWS::AccountId",
                 },
+                ".dkr.ecr.ap-northeast-1.",
                 Object {
-                  "Fn::Select": Array [
-                    1,
-                    Object {
-                      "Fn::Split": Array [
-                        "||",
-                        Object {
-                          "Ref": "AssetParametersf9c4d95958cb91dfc0d3eb06ae187348d95fc5690fdc07c5c42a48a192e9afd7S3VersionKey07966A5B",
-                        },
-                      ],
-                    },
-                  ],
+                  "Ref": "AWS::URLSuffix",
                 },
+                "/aws-cdk/assets:2a63d219880ba99f47b55c3fe556af74c57a9276a6e22f4d0ada16d7921cec23",
               ],
             ],
           },
@@ -1498,15 +1356,14 @@ Object {
             "SCOPE": "REGIONAL",
           },
         },
-        "Handler": "helper.lambda_handler",
         "MemorySize": 512,
+        "PackageType": "Image",
         "Role": Object {
           "Fn::GetAtt": Array [
             "AutomatedWafHelperServiceRoleE6D147A2",
             "Arn",
           ],
         },
-        "Runtime": "python3.8",
         "Timeout": 300,
       },
       "Type": "AWS::Lambda::Function",
@@ -1646,39 +1503,18 @@ Object {
       ],
       "Properties": Object {
         "Code": Object {
-          "S3Bucket": Object {
-            "Ref": "AssetParameters9adb6ec16cd08d5d9c755ccb1823098c09904313b6eadd75e3fd8cc80424ba66S3Bucket6B1E61C8",
-          },
-          "S3Key": Object {
+          "ImageUri": Object {
             "Fn::Join": Array [
               "",
               Array [
                 Object {
-                  "Fn::Select": Array [
-                    0,
-                    Object {
-                      "Fn::Split": Array [
-                        "||",
-                        Object {
-                          "Ref": "AssetParameters9adb6ec16cd08d5d9c755ccb1823098c09904313b6eadd75e3fd8cc80424ba66S3VersionKeyA81505AF",
-                        },
-                      ],
-                    },
-                  ],
+                  "Ref": "AWS::AccountId",
                 },
+                ".dkr.ecr.ap-northeast-1.",
                 Object {
-                  "Fn::Select": Array [
-                    1,
-                    Object {
-                      "Fn::Split": Array [
-                        "||",
-                        Object {
-                          "Ref": "AssetParameters9adb6ec16cd08d5d9c755ccb1823098c09904313b6eadd75e3fd8cc80424ba66S3VersionKeyA81505AF",
-                        },
-                      ],
-                    },
-                  ],
+                  "Ref": "AWS::URLSuffix",
                 },
+                "/aws-cdk/assets:99469b969b3ec5a29ede163b801a797916aa479e9d104bd533711776831a2542",
               ],
             ],
           },
@@ -1781,15 +1617,19 @@ Object {
             "WAF_BLOCK_PERIOD": "240",
           },
         },
-        "Handler": "log-parser.lambda_handler",
+        "ImageConfig": Object {
+          "Command": Array [
+            "log-parser.lambda_handler",
+          ],
+        },
         "MemorySize": 512,
+        "PackageType": "Image",
         "Role": Object {
           "Fn::GetAtt": Array [
             "AutomatedWafLogParserServiceRoleA0F93DE3",
             "Arn",
           ],
         },
-        "Runtime": "python3.8",
         "Timeout": 300,
       },
       "Type": "AWS::Lambda::Function",
@@ -2284,39 +2124,18 @@ Object {
       ],
       "Properties": Object {
         "Code": Object {
-          "S3Bucket": Object {
-            "Ref": "AssetParameters9adb6ec16cd08d5d9c755ccb1823098c09904313b6eadd75e3fd8cc80424ba66S3Bucket6B1E61C8",
-          },
-          "S3Key": Object {
+          "ImageUri": Object {
             "Fn::Join": Array [
               "",
               Array [
                 Object {
-                  "Fn::Select": Array [
-                    0,
-                    Object {
-                      "Fn::Split": Array [
-                        "||",
-                        Object {
-                          "Ref": "AssetParameters9adb6ec16cd08d5d9c755ccb1823098c09904313b6eadd75e3fd8cc80424ba66S3VersionKeyA81505AF",
-                        },
-                      ],
-                    },
-                  ],
+                  "Ref": "AWS::AccountId",
                 },
+                ".dkr.ecr.ap-northeast-1.",
                 Object {
-                  "Fn::Select": Array [
-                    1,
-                    Object {
-                      "Fn::Split": Array [
-                        "||",
-                        Object {
-                          "Ref": "AssetParameters9adb6ec16cd08d5d9c755ccb1823098c09904313b6eadd75e3fd8cc80424ba66S3VersionKeyA81505AF",
-                        },
-                      ],
-                    },
-                  ],
+                  "Ref": "AWS::URLSuffix",
                 },
+                "/aws-cdk/assets:99469b969b3ec5a29ede163b801a797916aa479e9d104bd533711776831a2542",
               ],
             ],
           },
@@ -2329,15 +2148,19 @@ Object {
             "LOG_LEVEL": "INFO",
           },
         },
-        "Handler": "partition_s3_logs.lambda_handler",
+        "ImageConfig": Object {
+          "Command": Array [
+            "partition_s3_logs.lambda_handler",
+          ],
+        },
         "MemorySize": 512,
+        "PackageType": "Image",
         "Role": Object {
           "Fn::GetAtt": Array [
             "AutomatedWafMoveS3LogsForPartitionServiceRoleA16E415E",
             "Arn",
           ],
         },
-        "Runtime": "python3.8",
         "Timeout": 300,
       },
       "Type": "AWS::Lambda::Function",
@@ -2445,39 +2268,18 @@ Object {
       ],
       "Properties": Object {
         "Code": Object {
-          "S3Bucket": Object {
-            "Ref": "AssetParametersf698daee6118a60d4addf30f92cb0cabaa291770398565b23116d70cfc482b26S3Bucket7468F4E5",
-          },
-          "S3Key": Object {
+          "ImageUri": Object {
             "Fn::Join": Array [
               "",
               Array [
                 Object {
-                  "Fn::Select": Array [
-                    0,
-                    Object {
-                      "Fn::Split": Array [
-                        "||",
-                        Object {
-                          "Ref": "AssetParametersf698daee6118a60d4addf30f92cb0cabaa291770398565b23116d70cfc482b26S3VersionKey81D245A0",
-                        },
-                      ],
-                    },
-                  ],
+                  "Ref": "AWS::AccountId",
                 },
+                ".dkr.ecr.ap-northeast-1.",
                 Object {
-                  "Fn::Select": Array [
-                    1,
-                    Object {
-                      "Fn::Split": Array [
-                        "||",
-                        Object {
-                          "Ref": "AssetParametersf698daee6118a60d4addf30f92cb0cabaa291770398565b23116d70cfc482b26S3VersionKey81D245A0",
-                        },
-                      ],
-                    },
-                  ],
+                  "Ref": "AWS::URLSuffix",
                 },
+                "/aws-cdk/assets:b3d6bc2bdb19d94fd5b132ddb0667ea632a61ef5340d4091798321125d9665ac",
               ],
             ],
           },
@@ -2542,15 +2344,14 @@ Object {
             "URL_LIST": "[{\\"url\\":\\"https://www.spamhaus.org/drop/drop.txt\\"},{\\"url\\":\\"https://www.spamhaus.org/drop/edrop.txt\\"},{\\"url\\":\\"https://check.torproject.org/exit-addresses\\", \\"prefix\\":\\"ExitAddress\\"},{\\"url\\":\\"https://rules.emergingthreats.net/fwrules/emerging-Block-IPs.txt\\"}]",
           },
         },
-        "Handler": "reputation-lists.lambda_handler",
         "MemorySize": 512,
+        "PackageType": "Image",
         "Role": Object {
           "Fn::GetAtt": Array [
             "AutomatedWafLambdaRoleReputationListsParserC1735D71",
             "Arn",
           ],
         },
-        "Runtime": "python3.8",
         "Timeout": 300,
       },
       "Type": "AWS::Lambda::Function",
