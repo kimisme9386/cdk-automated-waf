@@ -48,6 +48,12 @@ const project = new AwsCdkConstructLibrary({
       secret: AUTOMATION_TOKEN,
     },
   }),
+  releaseWorkflowSetupSteps: [
+    {
+      name: 'set CDK_DEFAULT_REGION environment',
+      run: 'echo "CDK_DEFAULT_REGION=ap-northeast" >> $GITHUB_ENV',
+    },
+  ],
 });
 
 project.eslint.addRules({
