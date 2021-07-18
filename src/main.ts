@@ -56,45 +56,45 @@ const Elastic_Load_Balancing_account_ID: { [key: string]: string } = {
   'cn-northwest-1': '037604701340',
 };
 
-interface AutomatedWafProps {
-  waf2Scope: Waf2ScopeOption;
+export interface AutomatedWafProps {
+  readonly waf2Scope: Waf2ScopeOption;
 
-  appAccessLogBucketName?: string;
-  wafLogBucketName?: string;
+  readonly appAccessLogBucketName?: string;
+  readonly wafLogBucketName?: string;
 
   /**
    * if waf2Scope is REGIONAL, give albArn to associate to waf acl
    */
-  albArn?: string;
+  readonly albArn?: string;
 
   /**
    * Default Waf name: CloudFront-Web
    */
-  wafNamingPrefix?: string;
+  readonly wafNamingPrefix?: string;
 
   /**
    * The maximum acceptable bad requests per minute per IP.
    */
-  errorThreshold?: number;
+  readonly errorThreshold?: number;
 
   /**
    * The maximum acceptable requests per FIVE-minute period per IP address.
    */
-  requestThreshold?: number;
+  readonly requestThreshold?: number;
 
   /**
    * The period (in minutes) to block applicable IP addresses.
    */
-  blockPeriod?: number;
+  readonly blockPeriod?: number;
 
   /**
    *  Enable AWS Shield Advanced.
    *  Notice! it need $3000 USD per month.
    *  Default is false
    */
-  enableShieldAdvancedLambda?: boolean;
+  readonly enableShieldAdvancedLambda?: boolean;
 
-  logLevel?: LOG_LEVEL;
+  readonly logLevel?: LOG_LEVEL;
 }
 
 export class AutomatedWaf extends cdk.Construct {
@@ -104,10 +104,10 @@ export class AutomatedWaf extends cdk.Construct {
     const stack = cdk.Stack.of(this);
 
     //default value
-    props.errorThreshold = props.errorThreshold ?? 50;
-    props.requestThreshold = props.requestThreshold ?? 100;
-    props.blockPeriod = props.blockPeriod ?? 240;
-    props.enableShieldAdvancedLambda =
+    const errorThreshold = props.errorThreshold ?? 50;
+    const requestThreshold = props.requestThreshold ?? 100;
+    const blockPeriod = props.blockPeriod ?? 240;
+    const enableShieldAdvancedLambda =
       props.enableShieldAdvancedLambda ?? false;
 
     const logLevel = props.logLevel ?? 'INFO';
@@ -823,9 +823,9 @@ export class AutomatedWaf extends cdk.Construct {
         IP_SET_ID_SCANNERS_PROBESV6: scannersProbesIpSetV6.attrArn,
         IP_SET_NAME_SCANNERS_PROBESV4: scannersProbesIpSetV4.name!,
         IP_SET_NAME_SCANNERS_PROBESV6: scannersProbesIpSetV6.name!,
-        WAF_BLOCK_PERIOD: String(props.blockPeriod),
-        ERROR_THRESHOLD: String(props.errorThreshold),
-        REQUEST_THRESHOLD: String(props.requestThreshold),
+        WAF_BLOCK_PERIOD: String(blockPeriod),
+        ERROR_THRESHOLD: String(errorThreshold),
+        REQUEST_THRESHOLD: String(requestThreshold),
         SOLUTION_ID: 'SO8128',
         METRICS_URL: 'https://metrics.awssolutionsbuilder.com/generic',
       },
@@ -1029,7 +1029,7 @@ export class AutomatedWaf extends cdk.Construct {
       })
     );
 
-    if (props.enableShieldAdvancedLambda) {
+    if (enableShieldAdvancedLambda) {
       //AWS Shield Advanced Lambda
       const shieldRole = new iam.Role(this, 'ShieldAdvanceRole', {
         assumedBy: new iam.ServicePrincipal('lambda.amazonaws.com'),
@@ -2318,8 +2318,8 @@ export class AutomatedWaf extends cdk.Construct {
       resourceType: 'Custom::GenerateAppLogParserConfFile',
       properties: {
         StackName: stack.stackName,
-        ErrorThreshold: props.errorThreshold,
-        WAFBlockPeriod: props.blockPeriod,
+        ErrorThreshold: errorThreshold,
+        WAFBlockPeriod: blockPeriod,
         AppAccessLogBucket: accessLogBucket.bucketName,
       },
     });
@@ -2329,8 +2329,8 @@ export class AutomatedWaf extends cdk.Construct {
       resourceType: 'Custom::GenerateWafLogParserConfFile',
       properties: {
         StackName: stack.stackName,
-        RequestThreshold: props.requestThreshold,
-        WAFBlockPeriod: props.blockPeriod,
+        RequestThreshold: requestThreshold,
+        WAFBlockPeriod: blockPeriod,
         WafAccessLogBucket: wafLogBucket.bucketName,
       },
     });
