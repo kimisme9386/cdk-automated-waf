@@ -5814,10 +5814,10 @@ projen@^0.17:
     yaml "^1.10.2"
     yargs "^16.2.0"
 
-projen@^0.27.2:
-  version "0.27.2"
-  resolved "https://registry.yarnpkg.com/projen/-/projen-0.27.2.tgz#ca1b158d3b6f4b9853dbb7fd906a2c8585b11e61"
-  integrity sha512-9I3SHf0LQN0ZWAvqjUzurJ2u7TmCodL73niVLwl7nNmxJzU6WTajgnV2kdhUqvHnRBPk6Ielba5iEDrkXOe9Ag==
+projen@^0.27.3:
+  version "0.27.3"
+  resolved "https://registry.yarnpkg.com/projen/-/projen-0.27.3.tgz#1cde4efaab59d66a84bb1c692e5c4c1966243306"
+  integrity sha512-hlEHOQu9yrGWAfSb0ZzlTb8rtcqZtFaZQ9moyuoghfT27U+FoeJOs2m9Vrc4RuCY/CJqJvVhmcodfoow0WBWXA==
   dependencies:
     "@iarna/toml" "^2.2.5"
     chalk "^4.1.1"
