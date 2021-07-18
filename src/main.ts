@@ -20,7 +20,7 @@ export enum Waf2ScopeOption {
   REGIONAL = 'REGIONAL',
 }
 
-export enum LOG_LEVEL {
+export enum LogLevel {
   DEBUG = 'DEBUG',
   INFO = 'INFO',
   WARNING = 'WARNING',
@@ -94,7 +94,7 @@ export interface AutomatedWafProps {
    */
   readonly enableShieldAdvancedLambda?: boolean;
 
-  readonly logLevel?: LOG_LEVEL;
+  readonly logLevel?: LogLevel;
 }
 
 export class AutomatedWaf extends cdk.Construct {
