@@ -1,5 +1,5 @@
 import * as cdk from '@aws-cdk/core';
-import { AutomatedWaf, Waf2ScopeOption } from './index';
+import { AutomatedWaf, LogLevel, Waf2ScopeOption } from './index';
 
 export class IntegTesting {
   readonly stack: cdk.Stack[];
@@ -17,8 +17,9 @@ export class IntegTesting {
       waf2Scope: Waf2ScopeOption.REGIONAL,
       wafNamingPrefix: 'Alb-Api',
       errorThreshold: 50,
-      requestThreshold: 100,
-      blockPeriod: 240,
+      requestThreshold: 500,
+      blockPeriod: 120,
+      logLevel: LogLevel.DEBUG,
     });
 
     app.synth();

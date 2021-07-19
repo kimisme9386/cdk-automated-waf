@@ -197,7 +197,7 @@ Object {
                       Object {
                         "Ref": "AWS::Partition",
                       },
-                      ":iam::582318560864:root",
+                      ":iam::undefined:root",
                     ],
                   ],
                 },
@@ -315,11 +315,15 @@ Object {
                 Object {
                   "Ref": "AWS::AccountId",
                 },
-                ".dkr.ecr.ap-northeast-1.",
+                ".dkr.ecr.",
+                Object {
+                  "Ref": "AWS::Region",
+                },
+                ".",
                 Object {
                   "Ref": "AWS::URLSuffix",
                 },
-                "/aws-cdk/assets:99469b969b3ec5a29ede163b801a797916aa479e9d104bd533711776831a2542",
+                "/aws-cdk/assets:7e2cf70277612f7116cf0e41f748df1f7ec76cf23887da25aa16c5b088db547a",
               ],
             ],
           },
@@ -327,7 +331,7 @@ Object {
         "Description": "This function adds a new hourly partition to athena table. It runs every hour, triggered by a CloudWatch event.",
         "Environment": Object {
           "Variables": Object {
-            "LOG_LEVEL": "INFO",
+            "LOG_LEVEL": "DEBUG",
           },
         },
         "ImageConfig": Object {
@@ -661,11 +665,15 @@ Object {
                 Object {
                   "Ref": "AWS::AccountId",
                 },
-                ".dkr.ecr.ap-northeast-1.",
+                ".dkr.ecr.",
+                Object {
+                  "Ref": "AWS::Region",
+                },
+                ".",
                 Object {
                   "Ref": "AWS::URLSuffix",
                 },
-                "/aws-cdk/assets:9c963278cb707eac6f017cade5c4444a72a6ef826d6036627b96c0c60c4a25b2",
+                "/aws-cdk/assets:ef2905be27682905b93fe3e2ae364e8a59ae1c5781a9233c511e5c47a9863644",
               ],
             ],
           },
@@ -673,7 +681,7 @@ Object {
         "Description": "This lambda function configures the Web ACL rules based on the features enabled in the CloudFormation template.",
         "Environment": Object {
           "Variables": Object {
-            "LOG_LEVEL": "INFO",
+            "LOG_LEVEL": "DEBUG",
             "METRICS_URL": "https://metrics.awssolutionsbuilder.com/generic",
             "SCOPE": "REGIONAL",
             "SOLUTION_ID": "SO8128",
@@ -968,11 +976,15 @@ Object {
                 Object {
                   "Ref": "AWS::AccountId",
                 },
-                ".dkr.ecr.ap-northeast-1.",
+                ".dkr.ecr.",
+                Object {
+                  "Ref": "AWS::Region",
+                },
+                ".",
                 Object {
                   "Ref": "AWS::URLSuffix",
                 },
-                "/aws-cdk/assets:8f1e46e2bcae21aa453c5851d217593815ccd97a888207d253171bfddb560c18",
+                "/aws-cdk/assets:68316c231e67cd9de1c6f541386bdfe27ad25d71ef9123690e795ce646102838",
               ],
             ],
           },
@@ -980,7 +992,7 @@ Object {
         "Description": "This lambda function counts X seconds and can be used to slow down component creation in CloudFormation",
         "Environment": Object {
           "Variables": Object {
-            "LOG_LEVEL": "INFO",
+            "LOG_LEVEL": "DEBUG",
             "SECONDS": "2",
           },
         },
@@ -1144,7 +1156,7 @@ Object {
           ],
         },
         "StackName": "TestStackAutomatedWaf",
-        "WAFBlockPeriod": 240,
+        "WAFBlockPeriod": 120,
       },
       "Type": "Custom::GenerateAppLogParserConfFile",
       "UpdateReplacePolicy": "Delete",
@@ -1152,7 +1164,7 @@ Object {
     "AutomatedWafGenerateWafLogParserConfFile2E24E502": Object {
       "DeletionPolicy": "Delete",
       "Properties": Object {
-        "RequestThreshold": 100,
+        "RequestThreshold": 500,
         "ServiceToken": Object {
           "Fn::GetAtt": Array [
             "AutomatedWafcustomResourceProviderframeworkonEvent19DF6B81",
@@ -1160,7 +1172,7 @@ Object {
           ],
         },
         "StackName": "TestStackAutomatedWaf",
-        "WAFBlockPeriod": 240,
+        "WAFBlockPeriod": 120,
         "WafAccessLogBucket": Object {
           "Ref": "AutomatedWafWafLogBucket2EE15204",
         },
@@ -1340,11 +1352,15 @@ Object {
                 Object {
                   "Ref": "AWS::AccountId",
                 },
-                ".dkr.ecr.ap-northeast-1.",
+                ".dkr.ecr.",
+                Object {
+                  "Ref": "AWS::Region",
+                },
+                ".",
                 Object {
                   "Ref": "AWS::URLSuffix",
                 },
-                "/aws-cdk/assets:2a63d219880ba99f47b55c3fe556af74c57a9276a6e22f4d0ada16d7921cec23",
+                "/aws-cdk/assets:27a606be2cc86b2ae95d38c0d69882cc3da1cfe440c75998c95cb8e5354c0130",
               ],
             ],
           },
@@ -1352,7 +1368,7 @@ Object {
         "Description": "This lambda function verifies the main project's dependencies, requirements and implement auxiliary functions.",
         "Environment": Object {
           "Variables": Object {
-            "LOG_LEVEL": "INFO",
+            "LOG_LEVEL": "DEBUG",
             "SCOPE": "REGIONAL",
           },
         },
@@ -1510,11 +1526,15 @@ Object {
                 Object {
                   "Ref": "AWS::AccountId",
                 },
-                ".dkr.ecr.ap-northeast-1.",
+                ".dkr.ecr.",
+                Object {
+                  "Ref": "AWS::Region",
+                },
+                ".",
                 Object {
                   "Ref": "AWS::URLSuffix",
                 },
-                "/aws-cdk/assets:99469b969b3ec5a29ede163b801a797916aa479e9d104bd533711776831a2542",
+                "/aws-cdk/assets:7e2cf70277612f7116cf0e41f748df1f7ec76cf23887da25aa16c5b088db547a",
               ],
             ],
           },
@@ -1595,7 +1615,7 @@ Object {
               ],
             },
             "LIMIT_IP_ADDRESS_RANGES_PER_IP_MATCH_CONDITION": "10000",
-            "LOG_LEVEL": "INFO",
+            "LOG_LEVEL": "DEBUG",
             "LOG_TYPE": "alb",
             "MAX_AGE_TO_UPDATE": "30",
             "METRICS_URL": "https://metrics.awssolutionsbuilder.com/generic",
@@ -1603,7 +1623,7 @@ Object {
               "Ref": "AWS::StackName",
             },
             "REGION": "AWS::Region",
-            "REQUEST_THRESHOLD": "100",
+            "REQUEST_THRESHOLD": "500",
             "SCOPE": "REGIONAL",
             "SEND_ANONYMOUS_USAGE_DATA": "No",
             "SOLUTION_ID": "SO8128",
@@ -1614,7 +1634,7 @@ Object {
             "WAF_ACCESS_LOG_BUCKET": Object {
               "Ref": "AutomatedWafWafLogBucket2EE15204",
             },
-            "WAF_BLOCK_PERIOD": "240",
+            "WAF_BLOCK_PERIOD": "120",
           },
         },
         "ImageConfig": Object {
@@ -1684,7 +1704,11 @@ Object {
                       Object {
                         "Ref": "AWS::Partition",
                       },
-                      ":glue:ap-northeast-1:",
+                      ":glue:",
+                      Object {
+                        "Ref": "AWS::Region",
+                      },
+                      ":",
                       Object {
                         "Ref": "AWS::AccountId",
                       },
@@ -1700,7 +1724,11 @@ Object {
                       Object {
                         "Ref": "AWS::Partition",
                       },
-                      ":glue:ap-northeast-1:",
+                      ":glue:",
+                      Object {
+                        "Ref": "AWS::Region",
+                      },
+                      ":",
                       Object {
                         "Ref": "AWS::AccountId",
                       },
@@ -2131,11 +2159,15 @@ Object {
                 Object {
                   "Ref": "AWS::AccountId",
                 },
-                ".dkr.ecr.ap-northeast-1.",
+                ".dkr.ecr.",
+                Object {
+                  "Ref": "AWS::Region",
+                },
+                ".",
                 Object {
                   "Ref": "AWS::URLSuffix",
                 },
-                "/aws-cdk/assets:99469b969b3ec5a29ede163b801a797916aa479e9d104bd533711776831a2542",
+                "/aws-cdk/assets:7e2cf70277612f7116cf0e41f748df1f7ec76cf23887da25aa16c5b088db547a",
               ],
             ],
           },
@@ -2145,7 +2177,7 @@ Object {
           "Variables": Object {
             "ENDPOINT": "Alb",
             "KEEP_ORIGINAL_DATA": "No",
-            "LOG_LEVEL": "INFO",
+            "LOG_LEVEL": "DEBUG",
           },
         },
         "ImageConfig": Object {
@@ -2275,11 +2307,15 @@ Object {
                 Object {
                   "Ref": "AWS::AccountId",
                 },
-                ".dkr.ecr.ap-northeast-1.",
+                ".dkr.ecr.",
+                Object {
+                  "Ref": "AWS::Region",
+                },
+                ".",
                 Object {
                   "Ref": "AWS::URLSuffix",
                 },
-                "/aws-cdk/assets:b3d6bc2bdb19d94fd5b132ddb0667ea632a61ef5340d4091798321125d9665ac",
+                "/aws-cdk/assets:d54c3d29a3e4530c6fcc77a9089c790bef1b53a8eedd471d35428f2b5fa6bfec",
               ],
             ],
           },
@@ -2332,7 +2368,7 @@ Object {
                 ],
               ],
             },
-            "LOG_LEVEL": "INFO",
+            "LOG_LEVEL": "DEBUG",
             "LOG_TYPE": "alb",
             "METRICS_URL": "https://metrics.awssolutionsbuilder.com/generic",
             "SCOPE": "REGIONAL",
