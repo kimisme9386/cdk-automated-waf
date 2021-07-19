@@ -11,7 +11,7 @@ const project = new AwsCdkConstructLibrary({
   cdkVersion: '1.111.0',
   defaultReleaseBranch: 'main',
   name: 'cdk-automated-waf',
-  repositoryUrl: 'git@github.com:kimisme9386/cdk-automated-waf.git',
+  repositoryUrl: 'https://github.com/kimisme9386/cdk-automated-waf.git',
   description: 'Cloudfront and ALB with Automated WAF',
   cdkDependencies: [
     '@aws-cdk/core',

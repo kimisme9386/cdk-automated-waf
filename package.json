@@ -3,7 +3,7 @@
   "description": "Cloudfront and ALB with Automated WAF",
   "repository": {
     "type": "git",
-    "url": "git@github.com:kimisme9386/cdk-automated-waf.git"
+    "url": "https://github.com/kimisme9386/cdk-automated-waf.git"
   },
   "scripts": {
     "clobber": "npx projen clobber",
