@@ -48,25 +48,26 @@ const project = new AwsCdkConstructLibrary({
       secret: AUTOMATION_TOKEN,
     },
   }),
-  releaseWorkflowSetupSteps: [
-    {
-      name: 'run test',
-      run: 'yarn test',
-    },
-    {
-      name: 'run test update',
-      run: 'yarn test:update',
-    },
-    {
-      uses: 'EndBug/add-and-commit@v7',
-      with: {
-        add: 'test',
-        author_name: 'Chris Yang',
-        author_email: 'kimisme9386@gmail.com',
-        message: 'fix: update test snapshot',
-      },
-    },
-  ],
+  // update snapshot test by workflow because aws region need undefined
+  // releaseWorkflowSetupSteps: [
+  //   {
+  //     name: 'run test',
+  //     run: 'yarn test',
+  //   },
+  //   {
+  //     name: 'run test update',
+  //     run: 'yarn test:update',
+  //   },
+  //   {
+  //     uses: 'EndBug/add-and-commit@v7',
+  //     with: {
+  //       add: 'test',
+  //       author_name: 'Chris Yang',
+  //       author_email: 'kimisme9386@gmail.com',
+  //       message: 'fix: update test snapshot',
+  //     },
+  //   },
+  // ],
 });
 
 project.eslint.addRules({
