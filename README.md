@@ -6,4 +6,62 @@
 
 This CDK Construct modify from [Cloudfront with Automated WAF](https://github.com/awslabs/aws-cloudfront-extensions/tree/main/templates/aws-cloudfront-waf).
 
+## Feature
+
+Reference [Cloudfront with Automated WAF README](https://github.com/awslabs/aws-cloudfront-extensions/tree/main/templates/aws-cloudfront-waf#cloudfront-with-automated-waf)
+
+## Construct Props
+
+| Properties                     | Default                      | Description                                                                                                                                                                                                                                                                                                                                                                 |
+| ------------------------------ | ---------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **waf2Scope**                  | No                           | `CLOUDFRONT` or `REGIONAL`. If use REGIONALREGIONAL, it support ALB only now                                                                                                                                                                                                                                                                                                |
+| **albArn**                     | No                           | if waf2Scope is REGIONAL, it can be specified associated resource to ALB.                                                                                                                                                                                                                                                                                                   |
+| **wafNamingPrefix**            | CloudFront-Web               | CloudFormation resource name prefix                                                                                                                                                                                                                                                                                                                                         |
+| **enableShieldAdvancedLambda** | CloudFront-Web               | CloudFormation resource name prefix                                                                                                                                                                                                                                                                                                                                         |
+| **appAccessLogBucketName**     | access-log-bucket-cloudfront | The name for the Amazon S3 bucket where you want to store Cloud Front access logs for your CloudFront distribution. More about bucket name restriction here: http://amzn.to/1p1YlU5.                                                                                                                                                                                        |
+| **logLevel**                   | waf-log-bucket-cloudfront    | The name for the Amazon S3 bucket where you want to store WAF access Cloud Front logs. More about bucket name restriction here: http://amzn.to/1p1YlU5.                                                                                                                                                                                                                     |
+| **errorThreshold**             | 50                           | The maximum acceptable bad requests per minute per IP.                                                                                                                                                                                                                                                                                                                      |
+| **requestThreshold**           | 100                          | The maximum acceptable requests per FIVE-minute period per IP address.                                                                                                                                                                                                                                                                                                      |
+| **blockPeriod**                | 240                          | The period (in minutes) to block applicable IP addresses.                                                                                                                                                                                                                                                                                                                   |
+| **WAFScope**                   | CLOUDFRONT                   | Specifies whether this is for an AWS CloudFront distribution or for a regional application. A regional application can be an Application Load Balancer (ALB), an Amazon API Gateway REST API, or an AWS AppSync GraphQL API. Valid Values are CLOUDFRONT and REGIONAL. For CLOUDFRONT, you must create your WAFv2 resources in the US East (N. Virginia) Region, us-east-1. |
+
+## Usage
+
+ALB
+
+```ts
+const stack = new cdk.Stack(app, 'TestStackAutomatedWaf', { env });
+
+new AutomatedWaf(stack, 'AutomatedWaf', {
+  waf2Scope: Waf2ScopeOption.REGIONAL,
+  wafNamingPrefix: 'Alb-Api',
+  errorThreshold: 50,
+  requestThreshold: 500,
+  blockPeriod: 120,
+  logLevel: LogLevel.DEBUG,
+});
+```
+
 :warning: If waf2Scope is REGIONAL, it has to enable ALB access logging and specify S3 location after deployment. The S3 location refer to CloudFormation Output which key is similar to "{stack name}AppAccessLogBucketName{hashCode}". See it in [AWS Document](https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-access-logs.html#enable-access-logging)
+
+CloudFront
+
+```ts
+const stack = new cdk.Stack(app, 'TestStackAutomatedWaf', { env });
+
+new AutomatedWaf(stack, 'AutomatedWaf', {
+  waf2Scope: Waf2ScopeOption.CLOUDFRONT,
+  wafNamingPrefix: 'CloudFront-Api',
+  errorThreshold: 50,
+  requestThreshold: 500,
+  blockPeriod: 120,
+  logLevel: LogLevel.DEBUG,
+});
+```
+
+## Modified items
+
+- CDK structure refactor from CDK Stack to CDK Construct
+- Add optional `enableShieldAdvancedLambda` property on construct because AWS Shield advance need [$3000 Monthly Fee](https://aws.amazon.com/shield/pricing/?nc1=h_ls)
+- Lambda deployment use docker image on CDK (DockerImageFunction)
+- Fix glue table schema for ALB access log
