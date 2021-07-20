@@ -50,8 +50,21 @@ const project = new AwsCdkConstructLibrary({
   }),
   releaseWorkflowSetupSteps: [
     {
-      name: 'set CDK_DEFAULT_REGION environment',
-      run: 'echo "CDK_DEFAULT_REGION=ap-northeast-1" >> $GITHUB_ENV',
+      name: 'run test',
+      run: 'yarn test',
+    },
+    {
+      name: 'run test update',
+      run: 'yarn test:update',
+    },
+    {
+      uses: 'EndBug/add-and-commit@v7',
+      with: {
+        add: 'test',
+        author_name: 'Chris Yang',
+        author_email: 'kimisme9386@gmail.com',
+        message: 'fix: update test snapshot',
+      },
     },
   ],
 });
