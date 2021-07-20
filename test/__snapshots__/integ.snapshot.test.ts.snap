@@ -197,7 +197,7 @@ Object {
                       Object {
                         "Ref": "AWS::Partition",
                       },
-                      ":iam::582318560864:root",
+                      ":iam::undefined:root",
                     ],
                   ],
                 },
@@ -315,7 +315,11 @@ Object {
                 Object {
                   "Ref": "AWS::AccountId",
                 },
-                ".dkr.ecr.ap-northeast-1.",
+                ".dkr.ecr.",
+                Object {
+                  "Ref": "AWS::Region",
+                },
+                ".",
                 Object {
                   "Ref": "AWS::URLSuffix",
                 },
@@ -661,7 +665,11 @@ Object {
                 Object {
                   "Ref": "AWS::AccountId",
                 },
-                ".dkr.ecr.ap-northeast-1.",
+                ".dkr.ecr.",
+                Object {
+                  "Ref": "AWS::Region",
+                },
+                ".",
                 Object {
                   "Ref": "AWS::URLSuffix",
                 },
@@ -968,7 +976,11 @@ Object {
                 Object {
                   "Ref": "AWS::AccountId",
                 },
-                ".dkr.ecr.ap-northeast-1.",
+                ".dkr.ecr.",
+                Object {
+                  "Ref": "AWS::Region",
+                },
+                ".",
                 Object {
                   "Ref": "AWS::URLSuffix",
                 },
@@ -1340,7 +1352,11 @@ Object {
                 Object {
                   "Ref": "AWS::AccountId",
                 },
-                ".dkr.ecr.ap-northeast-1.",
+                ".dkr.ecr.",
+                Object {
+                  "Ref": "AWS::Region",
+                },
+                ".",
                 Object {
                   "Ref": "AWS::URLSuffix",
                 },
@@ -1510,7 +1526,11 @@ Object {
                 Object {
                   "Ref": "AWS::AccountId",
                 },
-                ".dkr.ecr.ap-northeast-1.",
+                ".dkr.ecr.",
+                Object {
+                  "Ref": "AWS::Region",
+                },
+                ".",
                 Object {
                   "Ref": "AWS::URLSuffix",
                 },
@@ -1684,7 +1704,11 @@ Object {
                       Object {
                         "Ref": "AWS::Partition",
                       },
-                      ":glue:ap-northeast-1:",
+                      ":glue:",
+                      Object {
+                        "Ref": "AWS::Region",
+                      },
+                      ":",
                       Object {
                         "Ref": "AWS::AccountId",
                       },
@@ -1700,7 +1724,11 @@ Object {
                       Object {
                         "Ref": "AWS::Partition",
                       },
-                      ":glue:ap-northeast-1:",
+                      ":glue:",
+                      Object {
+                        "Ref": "AWS::Region",
+                      },
+                      ":",
                       Object {
                         "Ref": "AWS::AccountId",
                       },
@@ -2131,7 +2159,11 @@ Object {
                 Object {
                   "Ref": "AWS::AccountId",
                 },
-                ".dkr.ecr.ap-northeast-1.",
+                ".dkr.ecr.",
+                Object {
+                  "Ref": "AWS::Region",
+                },
+                ".",
                 Object {
                   "Ref": "AWS::URLSuffix",
                 },
@@ -2275,7 +2307,11 @@ Object {
                 Object {
                   "Ref": "AWS::AccountId",
                 },
-                ".dkr.ecr.ap-northeast-1.",
+                ".dkr.ecr.",
+                Object {
+                  "Ref": "AWS::Region",
+                },
+                ".",
                 Object {
                   "Ref": "AWS::URLSuffix",
                 },
