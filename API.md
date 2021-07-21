@@ -107,17 +107,17 @@ The maximum acceptable requests per FIVE-minute period per IP address.
 
 ---
 
-##### `wafLogBucketName`<sup>Optional</sup> <a name="cdk-automated-waf.AutomatedWafProps.property.wafLogBucketName"></a>
+##### `resourceNamingPrefix`<sup>Optional</sup> <a name="cdk-automated-waf.AutomatedWafProps.property.resourceNamingPrefix"></a>
 
 - *Type:* `string`
+
+If the construct need to deploy more than one times, specify the property to prevent AWS resource name conflict.
 
 ---
 
-##### `wafNamingPrefix`<sup>Optional</sup> <a name="cdk-automated-waf.AutomatedWafProps.property.wafNamingPrefix"></a>
+##### `wafLogBucketName`<sup>Optional</sup> <a name="cdk-automated-waf.AutomatedWafProps.property.wafLogBucketName"></a>
 
 - *Type:* `string`
-
-Default Waf name: CloudFront-Web.
 
 ---
 
