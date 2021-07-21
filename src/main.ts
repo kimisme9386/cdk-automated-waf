@@ -68,9 +68,9 @@ export interface AutomatedWafProps {
   readonly albArn?: string;
 
   /**
-   * Default Waf name: CloudFront-Web
+   * If the construct need to deploy more than one times, specify the property to prevent AWS resource name conflict
    */
-  readonly wafNamingPrefix?: string;
+  readonly resourceNamingPrefix?: string;
 
   /**
    * The maximum acceptable bad requests per minute per IP.
@@ -112,7 +112,7 @@ export class AutomatedWaf extends cdk.Construct {
 
     const logLevel = props.logLevel ?? 'INFO';
 
-    const cloudWatchDashboardName = `WAFMonitoringDashboard${cdk.Aws.REGION}`;
+    const cloudWatchDashboardName = `WAFMonitoringDashboard${props.resourceNamingPrefix}${cdk.Aws.REGION}`;
     const reputationListName =
       cdk.Fn.ref('AWS::StackName') + 'IPReputationListsRule';
     const allowListName = cdk.Fn.ref('AWS::StackName') + 'WhitelistRule';
@@ -342,8 +342,8 @@ export class AutomatedWaf extends cdk.Construct {
 
     // WAF Web ACL
     const wafweb = new wafv2.CfnWebACL(this, 'wafweb', {
-      name: props.wafNamingPrefix
-        ? `${props.wafNamingPrefix}-WAF`
+      name: props.resourceNamingPrefix
+        ? `${props.resourceNamingPrefix}-WAF`
         : 'CloudFront-Web-WAF',
       description: 'Custom WAFWebACL',
       defaultAction: {
@@ -353,8 +353,8 @@ export class AutomatedWaf extends cdk.Construct {
       visibilityConfig: {
         cloudWatchMetricsEnabled: true,
         sampledRequestsEnabled: true,
-        metricName: props.wafNamingPrefix
-          ? `${props.wafNamingPrefix}-WAF`
+        metricName: props.resourceNamingPrefix
+          ? `${props.resourceNamingPrefix}-WAF`
           : 'CloudFront-Web-WAF',
       },
       rules: [
@@ -367,8 +367,8 @@ export class AutomatedWaf extends cdk.Construct {
           visibilityConfig: {
             cloudWatchMetricsEnabled: true,
             sampledRequestsEnabled: true,
-            metricName: props.wafNamingPrefix
-              ? `${props.wafNamingPrefix}-waf-ipset-metrics`
+            metricName: props.resourceNamingPrefix
+              ? `${props.resourceNamingPrefix}-waf-ipset-metrics`
               : 'cloudfront-waf-ipset-metrics',
           },
           statement: {
@@ -1226,11 +1226,14 @@ export class AutomatedWaf extends cdk.Construct {
     );
 
     //Glue DB & table
+    const glueDatabasePostfix = props.resourceNamingPrefix
+      ? `_${props.resourceNamingPrefix.toLowerCase()}`
+      : '';
     const glueAccessLogsDatabase = new glue.Database(
       this,
       'GlueAccessLogsDatabase',
       {
-        databaseName: 'glue_accesslogs_database',
+        databaseName: `glue_accesslogs_database${glueDatabasePostfix}`,
       }
     );
 
@@ -1700,11 +1703,12 @@ export class AutomatedWaf extends cdk.Construct {
     }
 
     //Athena
+    const athenaWorkGroupPostfix = props.resourceNamingPrefix ?? '';
     const addPartitionAthenaQueryWorkGroup = new athena.CfnWorkGroup(
       this,
       'WAFAddPartitionAthenaQueryWorkGroup',
       {
-        name: 'WAFAddPartitionAthenaQueryWorkGroup',
+        name: `WAFAddPartitionAthenaQueryWorkGroup${athenaWorkGroupPostfix}`,
         description:
           'Athena WorkGroup for adding Athena partition queries used by AWS WAF Security Automations Solution',
         state: 'ENABLED',
@@ -1716,27 +1720,35 @@ export class AutomatedWaf extends cdk.Construct {
       }
     );
 
-    new athena.CfnWorkGroup(this, 'WAFLogAthenaQueryWorkGroup', {
-      name: 'WAFLogAthenaQueryWorkGroup',
-      description:
-        'Athena WorkGroup for WAF log queries used by AWS WAF Security Automations Solution',
-      state: 'ENABLED',
-      recursiveDeleteOption: true,
-      workGroupConfiguration: {
-        publishCloudWatchMetricsEnabled: true,
-      },
-    });
+    const wAFLogAthenaQueryWorkGroup = new athena.CfnWorkGroup(
+      this,
+      'WAFLogAthenaQueryWorkGroup',
+      {
+        name: `WAFLogAthenaQueryWorkGroup${athenaWorkGroupPostfix}`,
+        description:
+          'Athena WorkGroup for WAF log queries used by AWS WAF Security Automations Solution',
+        state: 'ENABLED',
+        recursiveDeleteOption: true,
+        workGroupConfiguration: {
+          publishCloudWatchMetricsEnabled: true,
+        },
+      }
+    );
 
-    new athena.CfnWorkGroup(this, 'WAFAppAccessLogAthenaQueryWorkGroup', {
-      name: 'WAFAppAccessLogAthenaQueryWorkGroup',
-      description:
-        'Athena WorkGroup for CloudFront or ALB application access log queries used by AWS WAF Security Automations Solution',
-      state: 'ENABLED',
-      recursiveDeleteOption: true,
-      workGroupConfiguration: {
-        publishCloudWatchMetricsEnabled: true,
-      },
-    });
+    const wAFAppAccessLogAthenaQueryWorkGroup = new athena.CfnWorkGroup(
+      this,
+      'WAFAppAccessLogAthenaQueryWorkGroup',
+      {
+        name: `WAFAppAccessLogAthenaQueryWorkGroup${athenaWorkGroupPostfix}`,
+        description:
+          'Athena WorkGroup for CloudFront or ALB application access log queries used by AWS WAF Security Automations Solution',
+        state: 'ENABLED',
+        recursiveDeleteOption: true,
+        workGroupConfiguration: {
+          publishCloudWatchMetricsEnabled: true,
+        },
+      }
+    );
 
     //Cloudwatch Dashboard
     new cloudwatch.CfnDashboard(this, 'MonitoringDashboard', {
@@ -1784,7 +1796,7 @@ export class AutomatedWaf extends cdk.Construct {
       glueAccessLogsDatabase: glueAccessLogsDatabase.databaseName,
       accessLogBucket: wafLogBucket.bucketName,
       glueWafAccessLogsTable: glueWafAccessLogsTable.tableName,
-      athenaWorkGroup: 'WAFLogAthenaQueryWorkGroup',
+      athenaWorkGroup: wAFLogAthenaQueryWorkGroup.name,
     };
 
     new events.Rule(this, 'lambdaAthenaWAFLogParserRule', {
@@ -1802,7 +1814,7 @@ export class AutomatedWaf extends cdk.Construct {
       glueAccessLogsDatabase: glueAccessLogsDatabase.databaseName,
       accessLogBucket: accessLogBucket.bucketName,
       glueAppAccessLogsTable: 'app_access_logs',
-      athenaWorkGroup: 'WAFAppAccessLogAthenaQueryWorkGroup',
+      athenaWorkGroup: wAFAppAccessLogAthenaQueryWorkGroup.name,
     };
 
     new events.Rule(this, 'lambdaAthenaAppLogParserRule', {

@@ -16,7 +16,7 @@ Reference [Cloudfront with Automated WAF README](https://github.com/awslabs/aws-
 | ------------------------------ | ---------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | **waf2Scope**                  | No                           | `CLOUDFRONT` or `REGIONAL`. If use REGIONALREGIONAL, it support ALB only now                                                                                                                                                                                                                                                                                                |
 | **albArn**                     | No                           | if waf2Scope is REGIONAL, it can be specified associated resource to ALB.                                                                                                                                                                                                                                                                                                   |
-| **wafNamingPrefix**            | CloudFront-Web               | CloudFormation resource name prefix                                                                                                                                                                                                                                                                                                                                         |
+| **resourceNamingPrefix**       | No                           | If the construct need to deploy more than one times, specify the property to prevent AWS resource name conflict                                                                                                                                                                                                                                                             |
 | **enableShieldAdvancedLambda** | false                        | enable or disable AWS Shield Advance (it need [$3000 Monthly Fee](https://aws.amazon.com/shield/pricing/?nc1=h_ls))                                                                                                                                                                                                                                                         |
 | **appAccessLogBucketName**     | access-log-bucket-cloudfront | The name for the Amazon S3 bucket where you want to store Cloud Front access logs for your CloudFront distribution. More about bucket name restriction here: http://amzn.to/1p1YlU5.                                                                                                                                                                                        |
 | **logLevel**                   | waf-log-bucket-cloudfront    | The name for the Amazon S3 bucket where you want to store WAF access Cloud Front logs. More about bucket name restriction here: http://amzn.to/1p1YlU5.                                                                                                                                                                                                                     |
@@ -58,6 +58,44 @@ new AutomatedWaf(stack, 'AutomatedWaf', {
   logLevel: LogLevel.DEBUG,
 });
 ```
+
+Multiple Stacks
+
+```ts
+const stackTest1 = new cdk.Stack(app, 'TestStack1AutomatedWaf', { env });
+
+new AutomatedWaf(stackTest1, 'AutomatedWaf', {
+  waf2Scope: Waf2ScopeOption.REGIONAL,
+  resourceNamingPrefix: 'Alb-Api',
+  errorThreshold: 50,
+  requestThreshold: 500,
+  blockPeriod: 120,
+  logLevel: LogLevel.DEBUG,
+});
+
+const stackTest2 = new cdk.Stack(app, 'TestStack2AutomatedWaf', { env });
+
+new AutomatedWaf(stackTest2, 'AutomatedWaf', {
+  waf2Scope: Waf2ScopeOption.REGIONAL,
+  resourceNamingPrefix: 'Alb-Api2',
+  errorThreshold: 60,
+  requestThreshold: 600,
+  blockPeriod: 120,
+  logLevel: LogLevel.DEBUG,
+});
+```
+
+:warning: If the construct need to deploy more than one times, specify the different value of `resourceNamingPrefix` property to prevent AWS resource name conflict
+
+## Troubleshooting
+
+If deployment error, the cloudFormation Error event like this
+
+```
+Received response status [FAILED] from custom resource. Message returned: 'HttpFloodLambdaLogParser' (RequestId: b4e08ea2-fe0a-46f8-98aa-6f96d4558579)
+```
+
+If any custom resource deploy error like above, delete the stack and redeploy it that will pass.
 
 ## Modified items
 

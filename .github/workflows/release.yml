@@ -24,6 +24,16 @@ jobs:
           git config user.email "github-actions@github.com"
       - name: Install dependencies
         run: yarn install --check-files --frozen-lockfile
+      - name: run test
+        run: yarn test
+      - name: run test update
+        run: yarn test:update
+      - uses: EndBug/add-and-commit@v7
+        with:
+          add: test
+          author_name: Chris Yang
+          author_email: kimisme9386@gmail.com
+          message: "fix: update test snapshot"
       - name: release
         run: npx projen release
       - name: Check for new commits

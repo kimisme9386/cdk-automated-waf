@@ -11,19 +11,30 @@ export class IntegTesting {
       account: process.env.CDK_DEFAULT_ACCOUNT,
     };
 
-    const stack = new cdk.Stack(app, 'TestStackAutomatedWaf', { env });
+    const stackTest1 = new cdk.Stack(app, 'TestStack1AutomatedWaf', { env });
 
-    new AutomatedWaf(stack, 'AutomatedWaf', {
+    new AutomatedWaf(stackTest1, 'AutomatedWaf', {
       waf2Scope: Waf2ScopeOption.REGIONAL,
-      wafNamingPrefix: 'Alb-Api',
+      resourceNamingPrefix: 'Alb-Api',
       errorThreshold: 50,
       requestThreshold: 500,
       blockPeriod: 120,
       logLevel: LogLevel.DEBUG,
     });
 
+    const stackTest2 = new cdk.Stack(app, 'TestStack2AutomatedWaf', { env });
+
+    new AutomatedWaf(stackTest2, 'AutomatedWaf', {
+      waf2Scope: Waf2ScopeOption.REGIONAL,
+      resourceNamingPrefix: 'Alb-Api2',
+      errorThreshold: 60,
+      requestThreshold: 600,
+      blockPeriod: 120,
+      logLevel: LogLevel.DEBUG,
+    });
+
     app.synth();
-    this.stack = [stack];
+    this.stack = [stackTest1, stackTest2];
   }
 }
 
