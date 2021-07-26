@@ -1497,9 +1497,9 @@
   integrity sha512-jhuKLIRrhvCPLqwPcx6INqmKeiA5EWrsCOPhrlFSrbrmU4ZMPjj5Ul/oLCMDO98XRUIwVm78xICz4EPCektzeQ==
 
 "@types/node@*":
-  version "16.4.2"
-  resolved "https://registry.yarnpkg.com/@types/node/-/node-16.4.2.tgz#0a95d7fd950cb1eaca0ce11031d72e8f680b775a"
-  integrity sha512-vxyhOzFCm+jC/T5KugbVsYy1DbQM0h3NCFUrVbu0+pYa/nr+heeucpqxpa8j4pUmIGLPYzboY9zIdOF0niFAjQ==
+  version "16.4.3"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-16.4.3.tgz#c01c1a215721f6dec71b47d88b4687463601ba48"
+  integrity sha512-GKM4FLMkWDc0sfx7tXqPWkM6NBow1kge0fgQh0bOnlqo4iT1kvTvMEKE0c1RtUGnbLlGRXiAA8SumE//90uKAg==
 
 "@types/node@^10.17.0", "@types/node@^10.17.60":
   version "10.17.60"
@@ -2330,9 +2330,9 @@ console-control-strings@^1.0.0, console-control-strings@~1.1.0:
   integrity sha1-PXz0Rk22RG6mRL9LOVB/mFEAjo4=
 
 constructs@^3.3.69:
-  version "3.3.103"
-  resolved "https://registry.yarnpkg.com/constructs/-/constructs-3.3.103.tgz#a9411978bd4370f2d0eb728949a3750ec33650c5"
-  integrity sha512-ETkx/cqTJYpayBkM9lAdayRs8rNP3fMf7OBBRpvgtNPuJUtgQkiArkggfeEnfN/tO5l3/IkRc7OeaVt+Wbpb0g==
+  version "3.3.104"
+  resolved "https://registry.yarnpkg.com/constructs/-/constructs-3.3.104.tgz#7e1467ec0e7ec12af62de7e338903c6b3dab5d94"
+  integrity sha512-hTkgLmZUfE3Sg8lgzFdeNF+p1ipj2vNg9/Z5lhYGxhFCFtozw0EwodJnLpTTEm5ooKSSYoSKBDtsBRtmDe+XTQ==
 
 conventional-changelog-angular@^5.0.12:
   version "5.0.12"
@@ -4629,10 +4629,10 @@ jsii-diff@^1.32.0:
     typescript "~3.9.9"
     yargs "^16.2.0"
 
-jsii-docgen@^3.2.5:
-  version "3.2.5"
-  resolved "https://registry.yarnpkg.com/jsii-docgen/-/jsii-docgen-3.2.5.tgz#540e12e3a994b9a1a132d8cdc2466af4c91e520d"
-  integrity sha512-1Kn7cu6vPORDfMvj0g7WPhwKcakx0cMqoUxhhErwWzqSWx8mq++wSLRs+8e/ETyMM8mSiOibMwE5/8zJmrPJAA==
+jsii-docgen@^3.2.7:
+  version "3.2.7"
+  resolved "https://registry.yarnpkg.com/jsii-docgen/-/jsii-docgen-3.2.7.tgz#dd7b9b9fee45fffef4e7924ece33fef02d7bf7da"
+  integrity sha512-zVaPn7f/M52SbwZT8tiLR4lr0qIcgl5roCJhKOKK+UMOW+sZVij31Pjzt8/SW7zd2zc6i+7b/WCTAekEybbIdg==
   dependencies:
     "@jsii/spec" "^1.32.0"
     case "^1.6.3"
