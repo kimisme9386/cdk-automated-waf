@@ -15,7 +15,7 @@ export class IntegTesting {
 
     new AutomatedWaf(stackTest1, 'AutomatedWaf', {
       waf2Scope: Waf2ScopeOption.REGIONAL,
-      resourceNamingPrefix: 'Alb-Api',
+      resourceNamingPrefix: 'Alb_Api',
       errorThreshold: 50,
       requestThreshold: 500,
       blockPeriod: 120,
@@ -26,7 +26,7 @@ export class IntegTesting {
 
     new AutomatedWaf(stackTest2, 'AutomatedWaf', {
       waf2Scope: Waf2ScopeOption.REGIONAL,
-      resourceNamingPrefix: 'Alb-Api2',
+      resourceNamingPrefix: 'Alb_Api2',
       errorThreshold: 60,
       requestThreshold: 600,
       blockPeriod: 120,
