@@ -30,6 +30,19 @@ new AutomatedWaf(scope: Construct, id: string, props: AutomatedWafProps)
 
 ---
 
+#### Methods <a name="Methods"></a>
+
+##### `validateResourceNamingPrefix` <a name="cdk-automated-waf.AutomatedWaf.validateResourceNamingPrefix"></a>
+
+```typescript
+public validateResourceNamingPrefix(resourceNamingPrefix: string)
+```
+
+###### `resourceNamingPrefix`<sup>Required</sup> <a name="cdk-automated-waf.AutomatedWaf.parameter.resourceNamingPrefix"></a>
+
+- *Type:* `string`
+
+---
 
 
 
