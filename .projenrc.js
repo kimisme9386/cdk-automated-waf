@@ -51,6 +51,10 @@ const project = new AwsCdkConstructLibrary({
   // update snapshot test by workflow because aws region need undefined
   releaseWorkflowSetupSteps: [
     {
+      name: 'run build',
+      run: 'yarn build',
+    },
+    {
       name: 'run test',
       run: 'yarn test',
     },
