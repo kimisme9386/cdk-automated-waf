@@ -279,7 +279,7 @@ Object {
         "AppAccessLogBucket": Object {
           "Ref": "AutomatedWafAccessLogBucket5A7E0F8F",
         },
-        "AthenaWorkGroup": "WAFAddPartitionAthenaQueryWorkGroupAlb-Api",
+        "AthenaWorkGroup": "WAFAddPartitionAthenaQueryWorkGroupAlb_Api",
         "GlueAccessLogsDatabase": Object {
           "Ref": "AutomatedWafGlueAccessLogsDatabaseA7CECCA5",
         },
@@ -1186,7 +1186,7 @@ Object {
           "Ref": "AWS::AccountId",
         },
         "DatabaseInput": Object {
-          "Name": "glue_accesslogs_database_alb-api",
+          "Name": "glue_accesslogs_database_alb_api",
         },
       },
       "Type": "AWS::Glue::Database",
@@ -2135,7 +2135,7 @@ Object {
           "Fn::Join": Array [
             "",
             Array [
-              "WAFMonitoringDashboardAlb-Api",
+              "WAFMonitoringDashboardAlb_Api",
               Object {
                 "Ref": "AWS::Region",
               },
@@ -2503,7 +2503,7 @@ Object {
     "AutomatedWafWAFAddPartitionAthenaQueryWorkGroup49879515": Object {
       "Properties": Object {
         "Description": "Athena WorkGroup for adding Athena partition queries used by AWS WAF Security Automations Solution",
-        "Name": "WAFAddPartitionAthenaQueryWorkGroupAlb-Api",
+        "Name": "WAFAddPartitionAthenaQueryWorkGroupAlb_Api",
         "RecursiveDeleteOption": true,
         "State": "ENABLED",
         "WorkGroupConfiguration": Object {
@@ -2516,7 +2516,7 @@ Object {
     "AutomatedWafWAFAppAccessLogAthenaQueryWorkGroupFE2E8C88": Object {
       "Properties": Object {
         "Description": "Athena WorkGroup for CloudFront or ALB application access log queries used by AWS WAF Security Automations Solution",
-        "Name": "WAFAppAccessLogAthenaQueryWorkGroupAlb-Api",
+        "Name": "WAFAppAccessLogAthenaQueryWorkGroupAlb_Api",
         "RecursiveDeleteOption": true,
         "State": "ENABLED",
         "WorkGroupConfiguration": Object {
@@ -2552,7 +2552,7 @@ Object {
     "AutomatedWafWAFLogAthenaQueryWorkGroup478EEEAE": Object {
       "Properties": Object {
         "Description": "Athena WorkGroup for WAF log queries used by AWS WAF Security Automations Solution",
-        "Name": "WAFLogAthenaQueryWorkGroupAlb-Api",
+        "Name": "WAFLogAthenaQueryWorkGroupAlb_Api",
         "RecursiveDeleteOption": true,
         "State": "ENABLED",
         "WorkGroupConfiguration": Object {
@@ -3043,7 +3043,7 @@ Object {
                   Object {
                     "Ref": "AutomatedWafWafLogBucket2EE15204",
                   },
-                  "\\",\\"athenaWorkGroup\\":\\"WAFAddPartitionAthenaQueryWorkGroupAlb-Api\\"}",
+                  "\\",\\"athenaWorkGroup\\":\\"WAFAddPartitionAthenaQueryWorkGroupAlb_Api\\"}",
                 ],
               ],
             },
@@ -3078,7 +3078,7 @@ Object {
                   Object {
                     "Ref": "AutomatedWafAccessLogBucket5A7E0F8F",
                   },
-                  "\\",\\"glueAppAccessLogsTable\\":\\"app_access_logs\\",\\"athenaWorkGroup\\":\\"WAFAppAccessLogAthenaQueryWorkGroupAlb-Api\\"}",
+                  "\\",\\"glueAppAccessLogsTable\\":\\"app_access_logs\\",\\"athenaWorkGroup\\":\\"WAFAppAccessLogAthenaQueryWorkGroupAlb_Api\\"}",
                 ],
               ],
             },
@@ -3136,7 +3136,7 @@ Object {
                   Object {
                     "Ref": "AutomatedWafGlueWafAccessLogsTable323DC62F",
                   },
-                  "\\",\\"athenaWorkGroup\\":\\"WAFLogAthenaQueryWorkGroupAlb-Api\\"}",
+                  "\\",\\"athenaWorkGroup\\":\\"WAFLogAthenaQueryWorkGroupAlb_Api\\"}",
                 ],
               ],
             },
@@ -3170,7 +3170,7 @@ Object {
           "Allow": Object {},
         },
         "Description": "Custom WAFWebACL",
-        "Name": "Alb-Api-WAF",
+        "Name": "Alb_Api-WAF",
         "Rules": Array [
           Object {
             "Name": "AWS-AWSManagedRulesCommonRuleSet",
@@ -3186,7 +3186,7 @@ Object {
             },
             "VisibilityConfig": Object {
               "CloudWatchMetricsEnabled": true,
-              "MetricName": "Alb-Api-waf-ipset-metrics",
+              "MetricName": "Alb_Api-waf-ipset-metrics",
               "SampledRequestsEnabled": true,
             },
           },
@@ -3719,7 +3719,7 @@ Object {
         "Scope": "REGIONAL",
         "VisibilityConfig": Object {
           "CloudWatchMetricsEnabled": true,
-          "MetricName": "Alb-Api-WAF",
+          "MetricName": "Alb_Api-WAF",
           "SampledRequestsEnabled": true,
         },
       },
@@ -4183,7 +4183,7 @@ Object {
         "AppAccessLogBucket": Object {
           "Ref": "AutomatedWafAccessLogBucket5A7E0F8F",
         },
-        "AthenaWorkGroup": "WAFAddPartitionAthenaQueryWorkGroupAlb-Api2",
+        "AthenaWorkGroup": "WAFAddPartitionAthenaQueryWorkGroupAlb_Api2",
         "GlueAccessLogsDatabase": Object {
           "Ref": "AutomatedWafGlueAccessLogsDatabaseA7CECCA5",
         },
@@ -5090,7 +5090,7 @@ Object {
           "Ref": "AWS::AccountId",
         },
         "DatabaseInput": Object {
-          "Name": "glue_accesslogs_database_alb-api2",
+          "Name": "glue_accesslogs_database_alb_api2",
         },
       },
       "Type": "AWS::Glue::Database",
@@ -6039,7 +6039,7 @@ Object {
           "Fn::Join": Array [
             "",
             Array [
-              "WAFMonitoringDashboardAlb-Api2",
+              "WAFMonitoringDashboardAlb_Api2",
               Object {
                 "Ref": "AWS::Region",
               },
@@ -6407,7 +6407,7 @@ Object {
     "AutomatedWafWAFAddPartitionAthenaQueryWorkGroup49879515": Object {
       "Properties": Object {
         "Description": "Athena WorkGroup for adding Athena partition queries used by AWS WAF Security Automations Solution",
-        "Name": "WAFAddPartitionAthenaQueryWorkGroupAlb-Api2",
+        "Name": "WAFAddPartitionAthenaQueryWorkGroupAlb_Api2",
         "RecursiveDeleteOption": true,
         "State": "ENABLED",
         "WorkGroupConfiguration": Object {
@@ -6420,7 +6420,7 @@ Object {
     "AutomatedWafWAFAppAccessLogAthenaQueryWorkGroupFE2E8C88": Object {
       "Properties": Object {
         "Description": "Athena WorkGroup for CloudFront or ALB application access log queries used by AWS WAF Security Automations Solution",
-        "Name": "WAFAppAccessLogAthenaQueryWorkGroupAlb-Api2",
+        "Name": "WAFAppAccessLogAthenaQueryWorkGroupAlb_Api2",
         "RecursiveDeleteOption": true,
         "State": "ENABLED",
         "WorkGroupConfiguration": Object {
@@ -6456,7 +6456,7 @@ Object {
     "AutomatedWafWAFLogAthenaQueryWorkGroup478EEEAE": Object {
       "Properties": Object {
         "Description": "Athena WorkGroup for WAF log queries used by AWS WAF Security Automations Solution",
-        "Name": "WAFLogAthenaQueryWorkGroupAlb-Api2",
+        "Name": "WAFLogAthenaQueryWorkGroupAlb_Api2",
         "RecursiveDeleteOption": true,
         "State": "ENABLED",
         "WorkGroupConfiguration": Object {
@@ -6947,7 +6947,7 @@ Object {
                   Object {
                     "Ref": "AutomatedWafWafLogBucket2EE15204",
                   },
-                  "\\",\\"athenaWorkGroup\\":\\"WAFAddPartitionAthenaQueryWorkGroupAlb-Api2\\"}",
+                  "\\",\\"athenaWorkGroup\\":\\"WAFAddPartitionAthenaQueryWorkGroupAlb_Api2\\"}",
                 ],
               ],
             },
@@ -6982,7 +6982,7 @@ Object {
                   Object {
                     "Ref": "AutomatedWafAccessLogBucket5A7E0F8F",
                   },
-                  "\\",\\"glueAppAccessLogsTable\\":\\"app_access_logs\\",\\"athenaWorkGroup\\":\\"WAFAppAccessLogAthenaQueryWorkGroupAlb-Api2\\"}",
+                  "\\",\\"glueAppAccessLogsTable\\":\\"app_access_logs\\",\\"athenaWorkGroup\\":\\"WAFAppAccessLogAthenaQueryWorkGroupAlb_Api2\\"}",
                 ],
               ],
             },
@@ -7040,7 +7040,7 @@ Object {
                   Object {
                     "Ref": "AutomatedWafGlueWafAccessLogsTable323DC62F",
                   },
-                  "\\",\\"athenaWorkGroup\\":\\"WAFLogAthenaQueryWorkGroupAlb-Api2\\"}",
+                  "\\",\\"athenaWorkGroup\\":\\"WAFLogAthenaQueryWorkGroupAlb_Api2\\"}",
                 ],
               ],
             },
@@ -7074,7 +7074,7 @@ Object {
           "Allow": Object {},
         },
         "Description": "Custom WAFWebACL",
-        "Name": "Alb-Api2-WAF",
+        "Name": "Alb_Api2-WAF",
         "Rules": Array [
           Object {
             "Name": "AWS-AWSManagedRulesCommonRuleSet",
@@ -7090,7 +7090,7 @@ Object {
             },
             "VisibilityConfig": Object {
               "CloudWatchMetricsEnabled": true,
-              "MetricName": "Alb-Api2-waf-ipset-metrics",
+              "MetricName": "Alb_Api2-waf-ipset-metrics",
               "SampledRequestsEnabled": true,
             },
           },
@@ -7623,7 +7623,7 @@ Object {
         "Scope": "REGIONAL",
         "VisibilityConfig": Object {
           "CloudWatchMetricsEnabled": true,
-          "MetricName": "Alb-Api2-WAF",
+          "MetricName": "Alb_Api2-WAF",
           "SampledRequestsEnabled": true,
         },
       },
