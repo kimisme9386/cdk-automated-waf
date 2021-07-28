@@ -103,6 +103,15 @@ export class AutomatedWaf extends cdk.Construct {
 
     const stack = cdk.Stack.of(this);
 
+    if (
+      props.resourceNamingPrefix &&
+      !this.validateResourceNamingPrefix(props.resourceNamingPrefix)
+    ) {
+      throw new Error(
+        'resourceNamingPrefix property only allow alphanumeric and "_" symbol because glue database naming is needed'
+      );
+    }
+
     //default value
     const errorThreshold = props.errorThreshold ?? 50;
     const requestThreshold = props.requestThreshold ?? 100;
@@ -2292,5 +2301,9 @@ export class AutomatedWaf extends cdk.Construct {
     new cdk.CfnOutput(this, 'WAFWebACLName', { value: wafweb.attrId });
 
     new cdk.CfnOutput(this, 'WAFWebACLArn', { value: wafweb.attrArn });
+  }
+
+  validateResourceNamingPrefix(resourceNamingPrefix: string): boolean {
+    return /^[a-zA-Z]+[a-zA-Z0-9_]+$/.test(resourceNamingPrefix);
   }
 }
