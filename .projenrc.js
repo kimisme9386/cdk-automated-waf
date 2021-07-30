@@ -6,8 +6,8 @@ const {
 const AUTOMATION_TOKEN = 'PROJEN_GITHUB_TOKEN';
 
 const project = new AwsCdkConstructLibrary({
-  author: 'kimisme9386',
-  authorAddress: 'kimisme9386@gmail.com',
+  author: 'Chris Yang',
+  authorUrl: 'https://9incloud.com/',
   cdkVersion: '1.111.0',
   defaultReleaseBranch: 'main',
   name: 'cdk-automated-waf',
@@ -47,6 +47,7 @@ const project = new AwsCdkConstructLibrary({
       labels: ['auto-approve'],
       secret: AUTOMATION_TOKEN,
     },
+    ignoreProjen: false,
   }),
   // update snapshot test by workflow because aws region need undefined
   releaseWorkflowSetupSteps: [
