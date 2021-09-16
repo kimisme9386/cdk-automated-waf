@@ -4,7 +4,7 @@
 
 ### AutomatedWaf <a name="cdk-automated-waf.AutomatedWaf"></a>
 
-#### Initializer <a name="cdk-automated-waf.AutomatedWaf.Initializer"></a>
+#### Initializers <a name="cdk-automated-waf.AutomatedWaf.Initializer"></a>
 
 ```typescript
 import { AutomatedWaf } from 'cdk-automated-waf'
@@ -61,11 +61,19 @@ const automatedWafProps: AutomatedWafProps = { ... }
 
 ##### `waf2Scope`<sup>Required</sup> <a name="cdk-automated-waf.AutomatedWafProps.property.waf2Scope"></a>
 
+```typescript
+public readonly waf2Scope: Waf2ScopeOption;
+```
+
 - *Type:* [`cdk-automated-waf.Waf2ScopeOption`](#cdk-automated-waf.Waf2ScopeOption)
 
 ---
 
 ##### `albArn`<sup>Optional</sup> <a name="cdk-automated-waf.AutomatedWafProps.property.albArn"></a>
+
+```typescript
+public readonly albArn: string;
+```
 
 - *Type:* `string`
 
@@ -75,11 +83,19 @@ if waf2Scope is REGIONAL, give albArn to associate to waf acl.
 
 ##### `appAccessLogBucketName`<sup>Optional</sup> <a name="cdk-automated-waf.AutomatedWafProps.property.appAccessLogBucketName"></a>
 
+```typescript
+public readonly appAccessLogBucketName: string;
+```
+
 - *Type:* `string`
 
 ---
 
 ##### `blockPeriod`<sup>Optional</sup> <a name="cdk-automated-waf.AutomatedWafProps.property.blockPeriod"></a>
+
+```typescript
+public readonly blockPeriod: number;
+```
 
 - *Type:* `number`
 
@@ -88,6 +104,10 @@ The period (in minutes) to block applicable IP addresses.
 ---
 
 ##### `enableShieldAdvancedLambda`<sup>Optional</sup> <a name="cdk-automated-waf.AutomatedWafProps.property.enableShieldAdvancedLambda"></a>
+
+```typescript
+public readonly enableShieldAdvancedLambda: boolean;
+```
 
 - *Type:* `boolean`
 
@@ -100,6 +120,10 @@ Default is false
 
 ##### `errorThreshold`<sup>Optional</sup> <a name="cdk-automated-waf.AutomatedWafProps.property.errorThreshold"></a>
 
+```typescript
+public readonly errorThreshold: number;
+```
+
 - *Type:* `number`
 
 The maximum acceptable bad requests per minute per IP.
@@ -108,11 +132,19 @@ The maximum acceptable bad requests per minute per IP.
 
 ##### `logLevel`<sup>Optional</sup> <a name="cdk-automated-waf.AutomatedWafProps.property.logLevel"></a>
 
+```typescript
+public readonly logLevel: LogLevel;
+```
+
 - *Type:* [`cdk-automated-waf.LogLevel`](#cdk-automated-waf.LogLevel)
 
 ---
 
 ##### `requestThreshold`<sup>Optional</sup> <a name="cdk-automated-waf.AutomatedWafProps.property.requestThreshold"></a>
+
+```typescript
+public readonly requestThreshold: number;
+```
 
 - *Type:* `number`
 
@@ -122,6 +154,10 @@ The maximum acceptable requests per FIVE-minute period per IP address.
 
 ##### `resourceNamingPrefix`<sup>Optional</sup> <a name="cdk-automated-waf.AutomatedWafProps.property.resourceNamingPrefix"></a>
 
+```typescript
+public readonly resourceNamingPrefix: string;
+```
+
 - *Type:* `string`
 
 If the construct need to deploy more than one times, specify the property to prevent AWS resource name conflict.
@@ -129,6 +165,10 @@ If the construct need to deploy more than one times, specify the property to pre
 ---
 
 ##### `wafLogBucketName`<sup>Optional</sup> <a name="cdk-automated-waf.AutomatedWafProps.property.wafLogBucketName"></a>
+
+```typescript
+public readonly wafLogBucketName: string;
+```
 
 - *Type:* `string`
 
