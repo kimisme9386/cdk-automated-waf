@@ -67,17 +67,9 @@ public readonly waf2Scope: Waf2ScopeOption;
 
 - *Type:* [`cdk-automated-waf.Waf2ScopeOption`](#cdk-automated-waf.Waf2ScopeOption)
 
----
+CLOUDFRONT or REGIONAL.
 
-##### `albArn`<sup>Optional</sup> <a name="cdk-automated-waf.AutomatedWafProps.property.albArn"></a>
-
-```typescript
-public readonly albArn: string;
-```
-
-- *Type:* `string`
-
-if waf2Scope is REGIONAL, give albArn to associate to waf acl.
+If use REGIONAL, it support ALB、API Gateway
 
 ---
 
@@ -88,6 +80,20 @@ public readonly appAccessLogBucketName: string;
 ```
 
 - *Type:* `string`
+
+---
+
+##### `associatedResourceArn`<sup>Optional</sup> <a name="cdk-automated-waf.AutomatedWafProps.property.associatedResourceArn"></a>
+
+```typescript
+public readonly associatedResourceArn: string;
+```
+
+- *Type:* `string`
+
+Only support ALB arn or API Gateway arn when waf2Scope is Regional.
+
+This property doesn't support CloudFront arn because it is restricted by CloudFormation `AWS::WAFv2::WebACLAssociation` , see more details: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-webaclassociation.html#cfn-wafv2-webaclassociation-resourcearndetails:
 
 ---
 
@@ -103,6 +109,20 @@ The period (in minutes) to block applicable IP addresses.
 
 ---
 
+##### `countMode`<sup>Optional</sup> <a name="cdk-automated-waf.AutomatedWafProps.property.countMode"></a>
+
+```typescript
+public readonly countMode: boolean;
+```
+
+- *Type:* `boolean`
+
+Test your WAF rules, see more details: [AWS WAF rule action](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-action.html).
+
+Default is false
+
+---
+
 ##### `enableShieldAdvancedLambda`<sup>Optional</sup> <a name="cdk-automated-waf.AutomatedWafProps.property.enableShieldAdvancedLambda"></a>
 
 ```typescript
@@ -111,7 +131,9 @@ public readonly enableShieldAdvancedLambda: boolean;
 
 - *Type:* `boolean`
 
-Enable or disable AWS Shield Advance (:warning: it need [$3000 Monthly Fee](https://aws.amazon.com/shield/pricing/?nc1=h_ls) Default is false.
+Enable or disable AWS Shield Advance (:warning: it need [$3000 Monthly Fee](https://aws.amazon.com/shield/pricing/?nc1=h_ls).
+
+Default is false
 
 ---
 
@@ -125,6 +147,8 @@ public readonly errorThreshold: number;
 
 The maximum acceptable bad requests per minute per IP.
 
+:warning: The property map WAF `Scanners and Probes` Rule which support only CloudFront and ALB.
+
 ---
 
 ##### `logLevel`<sup>Optional</sup> <a name="cdk-automated-waf.AutomatedWafProps.property.logLevel"></a>
@@ -134,6 +158,8 @@ public readonly logLevel: LogLevel;
 ```
 
 - *Type:* [`cdk-automated-waf.LogLevel`](#cdk-automated-waf.LogLevel)
+
+Valid value is 'INFO', 'DEBUG', 'INFO', 'WARNING', 'ERROR', 'CRITICAL'.
 
 ---
 
@@ -158,6 +184,8 @@ public readonly resourceNamingPrefix: string;
 - *Type:* `string`
 
 If the construct need to deploy more than one times, specify the property to prevent AWS resource name conflict.
+
+(The property only allow alphanumeric and "_" symbol because glue database naming is needed)
 
 ---
 
