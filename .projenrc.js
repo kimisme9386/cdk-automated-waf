@@ -1,6 +1,5 @@
 const {
   AwsCdkConstructLibrary,
-  DependenciesUpgradeMechanism,
   Gitpod,
   DevEnvironmentDockerImage,
 } = require('projen');
@@ -44,6 +43,8 @@ const project = new AwsCdkConstructLibrary({
     secret: 'GITHUB_TOKEN',
     allowedUsernames: ['kimisme9386-bot'],
   },
+  depsUpgrade: false,
+  release: false,
   depsUpgradeOptions: {
     workflowOptions: {
       labels: ['auto-approve'],

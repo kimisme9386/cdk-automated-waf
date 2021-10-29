@@ -35,8 +35,6 @@ jspm_packages/
 junit.xml
 /coverage/
 !/.github/workflows/build.yml
-/dist/changelog.md
-/dist/version.txt
 !/.mergify.yml
 !/.github/pull_request_template.md
 !/test/
@@ -56,5 +54,3 @@ dependabot.yml
 lambda/codepipeline-event/dist
 !/lambda/codepipeline-event/tsconfig.json
 !/.gitpod.yml
-!/.github/workflows/release.yml
-!/.github/workflows/upgrade-main.yml
